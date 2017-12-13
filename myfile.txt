@@ -1,3 +1,18 @@
 hello world
 
 my name is John kozo
+
+--commands to import the database on work PC 
+psql program postgres
+\i 'C:/Users/ikozompolis/Desktop/git_push/mycampaignprogram/DataBase/program.sql'
+
+--commands to export the database
+pg_dump -U postgres program >>C:\Users\ikozompolis\Desktop\git_push\mycampaignprogram\DataBase\program.sql
+
+
+
+--git commands
+git pull origin master
+git add . 
+git commit -m "commit1"
+git push origin master
