@@ -43,9 +43,18 @@ public class IWorkInfoController {
         }else {
             I_User i_User = new I_User();
             i_User = i_User_Repository.find(i_username);
-            i_Work_Info_Repository.save(new I_Work_Info(i_User.getI_user_id(), i_work_employer, i_work_position));
-            return new ResponseObject("success",null);
+            I_Work_Info i_Work_Info = new I_Work_Info(i_User.getI_user_id(), i_work_employer, i_work_position);
+            i_Work_Info_Repository.save(i_Work_Info);
+            return new ResponseObject("success",i_Work_Info);
         }
+    }
+    
+    
+    @RequestMapping("/findWorkByUsername")
+    public List<I_Work_Info> findByUsername(@RequestParam String username){
+        I_User i_User= i_User_Repository.find(username);
+        
+        return i_Work_Info_Repository.findByUserId(i_User.getI_user_id());
     }
     
 }

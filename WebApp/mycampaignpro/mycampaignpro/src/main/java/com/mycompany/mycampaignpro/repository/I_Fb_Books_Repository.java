@@ -5,7 +5,7 @@
  */
 package com.mycompany.mycampaignpro.repository;
 
-import com.mycompany.mycampaignpro.model.I_Location;
+import com.mycompany.mycampaignpro.model.I_Fb_Books;
 import java.util.List;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -13,14 +13,15 @@ import org.springframework.data.repository.query.Param;
 
 /**
  *
- * @author user
+ * @author ikozompolis
  */
-public interface I_Location_Repository extends CrudRepository<I_Location, Long>{
+public interface I_Fb_Books_Repository extends CrudRepository<I_Fb_Books, Long>{
     
     @Override
-    List<I_Location> findAll();
+    List<I_Fb_Books> findAll();
     
-    @Query("SELECT p FROM I_Location p WHERE p.i_user_id = :i_user_id")
-    public List<I_Location> findByUserId(@Param("i_user_id") Long i_user_id);
+    
+    @Query("SELECT p FROM I_Fb_Books p WHERE p.i_user_id = :i_user_id")
+    public List<I_Fb_Books> findByUserId(@Param("i_user_id") Long i_user_id);
     
 }

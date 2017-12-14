@@ -7,6 +7,7 @@ package com.mycompany.mycampaignpro.controller;
 
 import com.mycompany.mycampaignpro.model.I_Education_Info;
 import com.mycompany.mycampaignpro.model.I_User;
+import com.mycompany.mycampaignpro.model.responseObject.ResponseObject;
 import com.mycompany.mycampaignpro.repository.I_Education_Repository;
 import com.mycompany.mycampaignpro.repository.I_User_Repository;
 import java.util.List;
@@ -34,13 +35,21 @@ public class IEducationInfoController {
     }
     
     @RequestMapping("/saveEducationInfo")
-    public String saveEducationInfo(@RequestParam String i_username, String i_edu_degree, String i_edu_school, String i_edu_type, String i_edu_year){
+    public ResponseObject saveEducationInfo(@RequestParam String i_username, String i_edu_degree, String i_edu_school, String i_edu_type, String i_edu_year){
         
        I_User i_User = i_User_Repository.find(i_username);
-       i_Education_Repository.save(new I_Education_Info(i_User.getI_user_id(),i_edu_degree,i_edu_school,i_edu_type,i_edu_year));       
-       
-       return "success";
+       I_Education_Info i_Education_Info = new I_Education_Info(i_User.getI_user_id(),i_edu_degree,i_edu_school,i_edu_type,i_edu_year);
+       i_Education_Repository.save(i_Education_Info);  
+     
+       return new ResponseObject("success",i_Education_Info);
         
+    }
+    
+    @RequestMapping("/findEducationByUsername")
+    public List<I_Education_Info> findByUsername(@RequestParam String username){
+        I_User i_User= i_User_Repository.find(username);
+        
+        return i_Education_Repository.findByUserId(i_User.getI_user_id());
     }
     
 }

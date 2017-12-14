@@ -43,5 +43,12 @@ public class ILocationController {
         return new ResponseObject("Success",i_Location);
     }
     
+    @RequestMapping("/findLocationByUsername")
+    public List<I_Location> findByUsername(@RequestParam String username){
+        I_User i_User= i_User_Repository.find(username);
+        
+        return i_Location_Repository.findByUserId(i_User.getI_user_id());
+    }
+    
     
 }

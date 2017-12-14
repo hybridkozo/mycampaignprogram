@@ -22,7 +22,7 @@ public interface I_User_Repository extends CrudRepository<I_User, Long>{
     List<I_User> findAll();
     
     @Query("SELECT p FROM I_User p WHERE LOWER(p.i_username) = LOWER(:username)")
-    public I_User find(@Param("username") String lastName);
+    public I_User find(@Param("username") String username);
     
     
 }
