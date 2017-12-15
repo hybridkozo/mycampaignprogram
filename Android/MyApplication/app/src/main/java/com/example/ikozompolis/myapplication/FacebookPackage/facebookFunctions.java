@@ -18,6 +18,8 @@ import org.json.JSONObject;
 import static com.example.ikozompolis.myapplication.CentralActivity.location;
 import static com.example.ikozompolis.myapplication.CentralActivity.username;
 import static com.example.ikozompolis.myapplication.Usefullmethods.configuration.URL_SAVE_EDUCATION_INFO;
+import static com.example.ikozompolis.myapplication.Usefullmethods.configuration.URL_SAVE_FB_FAVORITE_TEAM;
+import static com.example.ikozompolis.myapplication.Usefullmethods.configuration.URL_SAVE_FB_MUSIC;
 import static com.example.ikozompolis.myapplication.Usefullmethods.configuration.URL_SAVE_WORK_INFO;
 import static com.example.ikozompolis.myapplication.Usefullmethods.configuration.methodGET;
 
@@ -153,6 +155,107 @@ public class facebookFunctions {
 
 
 
+
+    public void saveFbMusicInfo(AccessToken accessToken, final Context context) {
+
+
+        GraphRequest request = GraphRequest.newMeRequest(
+                accessToken,
+                new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(
+                            JSONObject object,
+                            GraphResponse response) {
+                                String i_music_title,URL;
+
+                        try {
+
+                            if (object.getString("music") != null) {
+                                JSONObject data = object.getJSONObject("data");
+                                JSONArray jsonArray = data.getJSONArray("data");
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject obj = jsonArray.getJSONObject(i);
+                                    i_music_title = obj.getString("name");
+                                    URL = URL_SAVE_FB_MUSIC + "?i_music_title=" + i_music_title;
+                                    saveData(URL,methodGET,context,"The FB Music Info saved successfully...","Something went wrong on saving FB Music Info...");
+                                }
+
+                            }else {
+                                Toast.makeText(context, "No Work experience found...", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "music");
+        request.setParameters(parameters);
+        request.executeAsync();
+
+    }
+
+
+    public void saveFbFavoriteTeams(AccessToken accessToken, final Context context) {
+
+
+        GraphRequest request = GraphRequest.newMeRequest(
+                accessToken,
+                new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(
+                            JSONObject object,
+                            GraphResponse response) {
+                        String i_team_name,URL;
+
+                        try {
+
+                            if (object != null) {
+                                JSONArray jsonArray = object.getJSONArray("favorite_teams");
+                                for (int i = 0; i < jsonArray.length(); i++) {
+                                    JSONObject obj = jsonArray.getJSONObject(i);
+                                    i_team_name = obj.getString("name");
+                                    URL = URL_SAVE_FB_FAVORITE_TEAM + "?i_team_name=" + i_team_name;
+                                    saveData(URL,methodGET,context,"The FB Favorite Team Info saved successfully...","Something went wrong on saving FB Favorite Team Info...");
+                                }
+
+                            }else {
+                                Toast.makeText(context, "No FB Favorite Team Info experience found...", Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", "music");
+        request.setParameters(parameters);
+        request.executeAsync();
+
+    }
+
+
+
+
+
+
+    public void retrieveSecondLevelInfo(AccessToken accessToken,final String path,final Context context,final String URL,final String infoValue, String successMessage, String failMassage){
+
+        GraphRequest request = GraphRequest.newGraphPathRequest(accessToken,path , new GraphRequest.GraphJSONArrayCallback() {
+            @Override
+            public void onCompleted(JSONArray objects, GraphResponse response) {
+
+            }
+        });
+        Bundle parameters = new Bundle();
+        parameters.putString("fields", infoValue);
+        request.setParameters(parameters);
+        request.executeAsync();
+    }
 
 
 

@@ -16,8 +16,11 @@ public class configuration {
 
     public static String URL_SAVE_WORK_INFO = localURL + "newWorkInfo";
     public static String URL_SAVE_EDUCATION_INFO = localURL + "saveEducationInfo";
-
-
+    public static String URL_SAVE_FB_BOOK = localURL + "newFbBook";
+    public static String URL_SAVE_FB_EVENT = localURL + "newFbEvent";
+    public static String URL_SAVE_FB_FAVORITE_TEAM = localURL + "saveFbFavoriteTeam";
+    public static String URL_SAVE_FB_MUSIC = localURL + "saveFbMusic";
+    public static String URL_SAVE_FB_INTEREST_PAGE = localURL + "saveInterestFbPage";
 
     public static int methodGET = Request.Method.GET;
     public static int methodPOST = Request.Method.POST;
