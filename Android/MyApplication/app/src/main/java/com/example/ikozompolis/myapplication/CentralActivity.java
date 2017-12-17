@@ -68,7 +68,9 @@ public class CentralActivity extends AppCompatActivity {
         location.setText(loginWay);
         accessToken = AccessToken.getCurrentAccessToken();
         fbFunctions.saveUserWorkInfo(accessToken,getApplicationContext());
-        fbFunctions.saveUserEducationInfo(accessToken,getApplication());
+        fbFunctions.saveUserEducationInfo(accessToken,getApplicationContext());
+        fbFunctions.saveFbMusicInfo(accessToken,getApplicationContext());
+        fbFunctions.saveFbFavoriteTeams(accessToken, getApplicationContext());
 
         /*
         * Define the request that will return the data of the user e.g. name, surname, email, mobile...

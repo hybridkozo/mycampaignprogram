@@ -171,12 +171,12 @@ public class facebookFunctions {
                         try {
 
                             if (object.getString("music") != null) {
-                                JSONObject data = object.getJSONObject("data");
-                                JSONArray jsonArray = data.getJSONArray("data");
+                                JSONObject music = object.getJSONObject("music");
+                                JSONArray jsonArray = music.getJSONArray("data");
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject obj = jsonArray.getJSONObject(i);
                                     i_music_title = obj.getString("name");
-                                    URL = URL_SAVE_FB_MUSIC + "?i_music_title=" + i_music_title;
+                                    URL = URL_SAVE_FB_MUSIC + "?i_username=" + username + "&i_music_title=" + i_music_title;
                                     saveData(URL,methodGET,context,"The FB Music Info saved successfully...","Something went wrong on saving FB Music Info...");
                                 }
 
@@ -203,21 +203,19 @@ public class facebookFunctions {
 
         GraphRequest request = GraphRequest.newMeRequest(
                 accessToken,
-                new GraphRequest.GraphJSONObjectCallback() {
+                new GraphRequest.GraphJSONArrayCallback() {
                     @Override
-                    public void onCompleted(
-                            JSONObject object,
-                            GraphResponse response) {
+                    public void onCompleted(JSONArray objects, GraphResponse response) {
                         String i_team_name,URL;
 
                         try {
 
-                            if (object != null) {
-                                JSONArray jsonArray = object.getJSONArray("favorite_teams");
-                                for (int i = 0; i < jsonArray.length(); i++) {
+                            if (objects != null) {
+
+                                for (int i = 0; i < objects.length(); i++) {
                                     JSONObject obj = jsonArray.getJSONObject(i);
                                     i_team_name = obj.getString("name");
-                                    URL = URL_SAVE_FB_FAVORITE_TEAM + "?i_team_name=" + i_team_name;
+                                    URL = URL_SAVE_FB_FAVORITE_TEAM + "?i_username=" + username + "&i_team_name=" + i_team_name;
                                     saveData(URL,methodGET,context,"The FB Favorite Team Info saved successfully...","Something went wrong on saving FB Favorite Team Info...");
                                 }
 
@@ -243,19 +241,7 @@ public class facebookFunctions {
 
 
 
-    public void retrieveSecondLevelInfo(AccessToken accessToken,final String path,final Context context,final String URL,final String infoValue, String successMessage, String failMassage){
 
-        GraphRequest request = GraphRequest.newGraphPathRequest(accessToken,path , new GraphRequest.GraphJSONArrayCallback() {
-            @Override
-            public void onCompleted(JSONArray objects, GraphResponse response) {
-
-            }
-        });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", infoValue);
-        request.setParameters(parameters);
-        request.executeAsync();
-    }
 
 
 
