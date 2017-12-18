@@ -1,15 +1,10 @@
 com\mycompany\mycampaignpro\services\UserService.class
-com\mycompany\mycampaignpro\repository\GreetingRepository.class
 com\mycompany\mycampaignpro\model\responseObject\ResponseObject.class
-com\mycompany\mycampaignpro\controller\GreetingController.class
 com\mycompany\mycampaignpro\Application.class
-com\mycompany\mycampaignpro\controller\IUserController.class
 com\mycompany\mycampaignpro\repository\I_Location_Repository.class
-com\mycompany\mycampaignpro\model\Greeting.class
-com\mycompany\mycampaignpro\services\GreetingService.class
 com\mycompany\mycampaignpro\model\I_User.class
 com\mycompany\mycampaignpro\repository\I_User_Repository.class
-com\mycompany\mycampaignpro\services\impl\UserServiceImpl.class
 com\mycompany\mycampaignpro\controller\ILocationController.class
 com\mycompany\mycampaignpro\model\I_Location.class
-com\mycompany\mycampaignpro\services\impl\GreetingServiceImpl.class
+com\mycompany\mycampaignpro\controller\IUserController.class
+com\mycompany\mycampaignpro\services\impl\UserServiceImpl.class
