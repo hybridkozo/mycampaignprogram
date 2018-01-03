@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         register = (TextView) findViewById(R.id.register);
         LoginButton loginButton = (LoginButton) findViewById(R.id.fb);
-        loginButton.setReadPermissions(Arrays.asList("email","user_work_history","user_education_history","user_likes"));
+        loginButton.setReadPermissions(Arrays.asList("email","user_work_history","user_education_history","user_likes", "user_events"));
         sharedPreferences = getSharedPreferences(MyPREFERENCES,Context.MODE_PRIVATE);
 
 

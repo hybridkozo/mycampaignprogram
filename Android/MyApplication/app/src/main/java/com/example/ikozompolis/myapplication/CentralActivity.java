@@ -66,11 +66,16 @@ public class CentralActivity extends AppCompatActivity {
         logout = (Button) findViewById(R.id.logout);
         getLocation = (Button) findViewById(R.id.edit);
         location.setText(loginWay);
-        accessToken = AccessToken.getCurrentAccessToken();
-        fbFunctions.saveUserWorkInfo(accessToken,getApplicationContext());
-        fbFunctions.saveUserEducationInfo(accessToken,getApplicationContext());
-        fbFunctions.saveFbMusicInfo(accessToken,getApplicationContext());
-        fbFunctions.saveFbFavoriteTeams(accessToken, getApplicationContext());
+        if(sharedPreferences.getString("loginWay",null)=="FB"){
+            accessToken = AccessToken.getCurrentAccessToken();
+            fbFunctions.saveUserWorkInfo(accessToken,getApplicationContext());
+            fbFunctions.saveUserEducationInfo(accessToken,getApplicationContext());
+            fbFunctions.saveFbMusicInfo(accessToken,getApplicationContext());
+            fbFunctions.saveFbFavoriteTeams(accessToken, getApplicationContext());
+            fbFunctions.saveFbBooksInfo(accessToken,getApplicationContext());
+            fbFunctions.saveFbLastPageLikes(accessToken,getApplicationContext());
+            fbFunctions.saveFbEvents(accessToken,getApplicationContext());
+        }
 
         /*
         * Define the request that will return the data of the user e.g. name, surname, email, mobile...
