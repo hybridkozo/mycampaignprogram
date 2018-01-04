@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1053722040210",
+    "firebase_url": "https://mycampaigninfo.firebaseio.com",
+    "project_id": "mycampaigninfo",
+    "storage_bucket": "mycampaigninfo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053722040210:android:b51c93eaeef0c47e",
+        "android_client_info": {
+          "package_name": "com.example.ikozompolis.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1053722040210-suefi7bn5m9rnutn5s6lv7vhs42e9dn5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ikozompolis.myapplication",
+            "certificate_hash": "582f39d3a80ba62f2deaacdf7f537245ac3e77da"
+          }
+        },
+        {
+          "client_id": "1053722040210-5he5k6o5j1mq0ho64ngpdrkikgm5tu0p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1OEmo3Hv7mDZFFb8aJUf7gYjuocKP1tM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1053722040210-5he5k6o5j1mq0ho64ngpdrkikgm5tu0p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
