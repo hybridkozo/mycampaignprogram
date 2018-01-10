@@ -19,7 +19,9 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
   <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+   <link rel="stylesheet" href="Chosen/chosen.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
  
   
 </head>
@@ -312,13 +314,24 @@
                          </div>
                             </div>
                         
-                            <div class="form-group">
-                                <select class="selectpicker" multiple data-actions-box="true">
-                                <option>Mustard</option>
-                                <option>Ketchup</option>
-                                <option>Relish</option>
+                            <div class="form-group"> 
+                                
+                                
+                              
+                             <select data-placeholder="Your Favorite Types of Bear" multiple class="chosen-select" tabindex="8">
+                                <option value=""></option>
+                                <option>American Black Bear</option>
+                                <option>Asiatic Black Bear</option>
+                                <option>Brown Bear</option>
+                                <option>Giant Panda</option>
+                                <option>Sloth Bear</option>
+                                <option disabled>Sun Bear</option>
+                                <option selected>Polar Bear</option>
+                                <option disabled>Spectacled Bear</option>
                               </select>
+                                  
                             </div>
+
  
 
 
@@ -368,7 +381,7 @@
       </div>
     </div>
     <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <!--script src="vendor/jquery/jquery.min.js"></script-->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -379,15 +392,21 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+     <!--Script Definitions-->
+  <script src="js/segments/segments.js"></script>
+  
+ 
+
+  
   </div>
   
-  <!--Script Definitions-->
-  <script src="js/segments/segments.js"></script>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
- 
-<!-- (Optional) Latest compiled and minified JavaScript translation files -->
-
+ <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script>
+             $(function() {
+        $('.chosen-select').chosen();
+        $('.chosen-select-deselect').chosen({ allow_single_deselect: true });
+      });
+    </script>
 
 </body>
 
