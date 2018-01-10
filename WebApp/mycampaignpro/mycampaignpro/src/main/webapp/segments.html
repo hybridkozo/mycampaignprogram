@@ -318,24 +318,198 @@
                                 
                                 
                               
-                             <select data-placeholder="Your Favorite Types of Bear" multiple class="chosen-select" tabindex="8">
-                                <option value=""></option>
-                                <option>American Black Bear</option>
-                                <option>Asiatic Black Bear</option>
-                                <option>Brown Bear</option>
-                                <option>Giant Panda</option>
-                                <option>Sloth Bear</option>
-                                <option disabled>Sun Bear</option>
-                                <option selected>Polar Bear</option>
-                                <option disabled>Spectacled Bear</option>
+                             <select data-placeholder="Country Code" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->
+                                <option>GR</option>
+                                <option>DE</option>
+                                <option>SP</option>
+                                <option>SW</option>
+                                <option>PR</option>                              
+                              </select>
+                              <select data-placeholder="Country Name" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->
+                                <option>Greece</option>
+                                <option>Italy</option>
+                                <option>Spain</option>
+                                <option>Poland</option>
+                                <option>Romania</option>                           
+                              </select>
+                              <select data-placeholder="City Name" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->
+                                <option>Athens</option>
+                                <option>Rome</option>
+                                <option>Kalamata</option>
+                                <option>Thessalonikh</option>
+                                <option>Tripoli</option>                           
+                              </select>
+                               <select data-placeholder="Prefecture" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->
+                                <option>Messinia</option>
+                                <option>Attiki</option>
+                                <option>Thessalia</option>
+                                <option>Arkadia</option>
+                                <option>Xaniwn</option>                           
+                              </select>  
+                                
+                              <select data-placeholder="Department" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->
+                                <option>Peloponissos</option>
+                                <option>Attica</option>
+                                <option>Kriti</option>
+                                <option>Sterea ellada</option>
+                                <option>Dwdekanisa</option>                           
+                              </select>  
+                                <select data-placeholder="Street Address" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->
+                                <option>Sarwnos 3</option>
+                                <option>Praksitelous 56</option>
+                                <option>polutexniou</option>
+                                <option>papalamplenas</option>
+                                <option>Kokobiou</option>                           
+                              </select>
+                                <select data-placeholder="Postal Code" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->
+                                <option>11143</option>
+                                <option>24100</option>
+                                <option>11155</option>
+                                <option>11236</option>
+                                <option>14562</option>                           
                               </select>
                                   
                             </div>
-
- 
-
-
                             
+                             <div class="form-group">
+                         <div class="card-header">
+                            <i class="fa fa-building"></i> Target Work Info        
+                         </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <div id="empl"></div>
+                                <!--select id="employer" data-placeholder="Eployer" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <!--option>Microsoft</option>
+                                    <option>AB Basilopoulos</option>
+                                    <option>Public</option>
+                                    <option>Plaisio</option>
+                                    <option>E-Shop</option--> 
+                                    
+                                    <script>
+                        
+                        var xhttp = new XMLHttpRequest();
+                         xhttp.onreadystatechange = function() {
+                            var data,x = "",i,flen; 
+                            if (this.readyState == 4 && this.status == 200) {
+                                 data = JSON.parse(this.responseText);
+                               flen = data.length;
+                                 x='<select id="employer" data-placeholder="Eployer" multiple class="chosen-select" tabindex="8">';
+                                 if (data!=null){
+                                     for (i=0;i<flen;i++){
+                                      x+= "<option>" + data[i] + "</option>";
+                                     }
+                                     x+='</select>';
+                                     document.getElementById("empl").innerHTML = x;
+                                 }
+                                 
+                            }
+                         };
+                         xhttp.open("GET", "http://localhost:8080/getDistinctAllEmployers", true);
+                            xhttp.send();
+                    
+                </script>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                              
+                              <select data-placeholder="Position" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <option>Software Engineer</option>
+                                    <option>Director</option>
+                                    <option>Secretary</option>
+                                    <option>Sales</option>
+                                    <option>Support</option>                           
+                              </select>
+                            </div>
+                            
+                       <div class="form-group">
+                         <div class="card-header">
+                            <i class="fa fa-book"></i> Target Education        
+                         </div>
+                       </div>
+                            
+                            
+                             <div class="form-group">
+                                <select data-placeholder="School" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <option>University of Piraeus</option>
+                                    <option>Technological institute of Crete</option>
+                                    <option>University of Athens</option>                           
+                              </select>
+                              <select data-placeholder="Degree" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <option>Master</option>
+                                    <option>Bachelor</option>
+                                    <option>Entry</option>
+                                    <option>Doctor</option>                           
+                              </select>
+                                  <select data-placeholder="Year" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <option>2000</option>
+                                    <option>2005</option>
+                                    <option>2013</option>
+                                    <option>2018</option>
+                                    <option>2003</option>                           
+                              </select>
+                            </div>
+                            
+                            
+                            
+                            <div class="form-group">
+                         <div class="card-header">
+                            <i class="fa fa-info-circle"></i> Extra Information        
+                         </div>
+                       </div>
+                            
+                            
+                             <div class="form-group">
+                                <select data-placeholder="Favorite Books" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <option>Secret</option>
+                                    <option>The Black Hole</option>
+                                    <option>Winter</option>                           
+                              </select>
+                              <select data-placeholder="Sport Teams" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <option>AEK</option>
+                                    <option>PAO</option>
+                                    <option>PAOK</option>
+                                    <option>OSFP</option>                           
+                              </select>
+                                  <select data-placeholder="Intresting Events" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <option>Matala beach festival</option>
+                                    <option>Christmas Tree</option>
+                                    <option>Tonis Sfinos</option>
+                                    <option>Trubar</option>                          
+                              </select>
+                                
+                              <select data-placeholder="Favorite Music" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <option>Eminem</option>
+                                    <option>Tonis Sfinos</option>
+                                    <option>Bob Marley</option>
+                                    <option>David Guetta</option>                          
+                              </select>
+                                 <select data-placeholder="Intesting Pages" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->
+                                    <option>Almasport</option>
+                                    <option>Zara</option>
+                                    <option>Pull n Bear</option>                         
+                              </select>
+                            </div>
                             
                              <div class="form-group">        
                               <div class="col-sm-offset-2 col-sm-10">

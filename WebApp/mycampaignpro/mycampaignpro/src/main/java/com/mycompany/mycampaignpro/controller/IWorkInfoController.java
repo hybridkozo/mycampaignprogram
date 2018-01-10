@@ -57,4 +57,10 @@ public class IWorkInfoController {
         return i_Work_Info_Repository.findByUserId(i_User.getI_user_id());
     }
     
+    
+    @RequestMapping("/getDistinctAllEmployers")
+    public List<String> getDistinctAllEmployers(){
+        return i_Work_Info_Repository.returnDistinctWorkEmployers();
+    }
+    
 }
