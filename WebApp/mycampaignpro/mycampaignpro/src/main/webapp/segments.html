@@ -22,6 +22,15 @@
    <link rel="stylesheet" href="Chosen/chosen.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+   <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script>
+             $(function() {
+        $('.chosen-select').chosen();
+        $('.chosen-select-deselect').chosen({ allow_single_deselect: true });
+      });
+    </script>
+     <!--Script Definitions-->
+  <script src="js/segments/segments.js"></script>
  
   
 </head>
@@ -274,6 +283,9 @@
                   </tr>                
               </tbody>
             </table>
+                        <select id="mine" data-placeholder="Employer" multiple class="chosen-select" tabindex="8">
+                        <script>addEmployerContent("mine");</script>
+                        </select>
                     </div>
                 </div>
                 </div>
@@ -394,29 +406,7 @@
                                     <option>Plaisio</option>
                                     <option>E-Shop</option--> 
                                     
-                                    <script>
-                        
-                        var xhttp = new XMLHttpRequest();
-                         xhttp.onreadystatechange = function() {
-                            var data,x = "",i,flen; 
-                            if (this.readyState == 4 && this.status == 200) {
-                                 data = JSON.parse(this.responseText);
-                               flen = data.length;
-                                 x='<select id="employer" data-placeholder="Eployer" multiple class="chosen-select" tabindex="8">';
-                                 if (data!=null){
-                                     for (i=0;i<flen;i++){
-                                      x+= "<option>" + data[i] + "</option>";
-                                     }
-                                     x+='</select>';
-                                     document.getElementById("empl").innerHTML = x;
-                                 }
-                                 
-                            }
-                         };
-                         xhttp.open("GET", "http://localhost:8080/getDistinctAllEmployers", true);
-                            xhttp.send();
-                    
-                </script>
+                            
                                     
                                     
                                     
@@ -566,22 +556,15 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
-     <!--Script Definitions-->
-  <script src="js/segments/segments.js"></script>
   
  
 
   
   </div>
   
- <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-    <script>
-             $(function() {
-        $('.chosen-select').chosen();
-        $('.chosen-select-deselect').chosen({ allow_single_deselect: true });
-      });
-    </script>
+
 
 </body>
 
 </html>
+
