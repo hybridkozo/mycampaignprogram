@@ -23,4 +23,7 @@ public interface I_Fb_Favorite_Teams_Repository extends CrudRepository<I_Fb_Favo
     @Query("SELECT p FROM I_Fb_Favorite_Teams p WHERE p.i_user_id = :i_user_id")
     public List<I_Fb_Favorite_Teams> findByUserId(@Param("i_user_id") Long i_user_id);
     
+     @Query("SELECT DISTINCT p.i_team_name FROM I_Fb_Favorite_Teams p WHERE p.i_team_name is not null")
+    public List<String> getDistinctFavoriteSportTeams();
+    
 }

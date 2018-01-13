@@ -24,4 +24,8 @@ public interface I_Fb_Events_Repository extends CrudRepository<I_Fb_Events, Long
     @Query("SELECT p FROM I_Fb_Events p WHERE p.i_user_id = :i_user_id")
     public List<I_Fb_Events> findByUserId(@Param("i_user_id") Long i_user_id);
     
+    
+    @Query("SELECT DISTINCT p.i_event_name FROM I_Fb_Events p WHERE p.i_event_name is not null and p.i_event_name!='' and p.i_event_name!='null'")
+    public List<String> getDistinctEvents();
+    
 }

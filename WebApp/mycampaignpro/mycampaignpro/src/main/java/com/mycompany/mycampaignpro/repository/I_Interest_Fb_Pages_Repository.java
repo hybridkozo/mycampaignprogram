@@ -23,4 +23,7 @@ public interface I_Interest_Fb_Pages_Repository extends CrudRepository<I_Interes
     @Query("SELECT p FROM I_Interest_Fb_Pages p WHERE p.i_user_id = :i_user_id")
     public List<I_Interest_Fb_Pages> findByUserId(@Param("i_user_id") Long i_user_id);
     
+    @Query("SELECT DISTINCT p.i_page_name FROM I_Interest_Fb_Pages p WHERE p.i_page_name is not null")
+    public List<String> getDistinctFavoritePages();
+    
 }

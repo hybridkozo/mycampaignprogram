@@ -24,5 +24,15 @@ public interface I_Education_Repository extends CrudRepository<I_Education_Info,
     @Query("SELECT p FROM I_Education_Info p WHERE p.i_user_id = :i_user_id")
     public List<I_Education_Info> findByUserId(@Param("i_user_id") Long i_user_id);
     
+    @Query("SELECT DISTINCT p.i_edu_school FROM I_Education_Info p WHERE p.i_edu_school is not null")
+    public List<String> getDistinctEduSchool();
+    
+    @Query("SELECT DISTINCT p.i_edu_degree FROM I_Education_Info p WHERE p.i_edu_degree is not null")
+    public List<String> getDistinctEduDegree();
+    
+    @Query("SELECT DISTINCT p.i_edu_year FROM I_Education_Info p WHERE p.i_edu_year is not null")
+    public List<String> getDistinctEduYear();
+    
+    
     
 }

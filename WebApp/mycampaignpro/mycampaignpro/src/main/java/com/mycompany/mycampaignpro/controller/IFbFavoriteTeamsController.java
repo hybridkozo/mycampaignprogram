@@ -49,4 +49,10 @@ public class IFbFavoriteTeamsController {
         return i_Fb_Favorite_Teams_Repository.findByUserId(i_User.getI_user_id());
     }
     
+    
+     @RequestMapping("/getDistinctFavoriteSportTeams")
+    public List<String> getDistinctFavoriteSportTeams(){   
+        return i_Fb_Favorite_Teams_Repository.getDistinctFavoriteSportTeams();
+    }
+    
 }

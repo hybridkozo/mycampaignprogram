@@ -29,7 +29,7 @@ public class I_Fb_Books implements Serializable{
     @Column(name = "i_user_id")
     private long i_user_id;
     @Column(name = "i_book_name")
-    private String i_book_name;
+        private String i_book_name;
     @Column(name = "i_book_description")
     private String i_book_description;
 

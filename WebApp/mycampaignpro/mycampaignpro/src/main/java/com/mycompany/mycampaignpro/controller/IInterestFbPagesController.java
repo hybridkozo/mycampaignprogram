@@ -49,5 +49,10 @@ public class IInterestFbPagesController {
         return i_Interest_Fb_Pages_Repository.findByUserId(i_User.getI_user_id());
     }
     
+     @RequestMapping("/getDistinctFavoritePages")
+    public List<String> getDistinctFavoritePages(){   
+        return i_Interest_Fb_Pages_Repository.getDistinctFavoritePages();
+    }
+    
     
 }

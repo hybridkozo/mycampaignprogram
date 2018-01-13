@@ -62,4 +62,10 @@ public class IFbEventsController {
     }
     
     
+    @RequestMapping("/getDistinctEventNames")
+    public List<String> getDistinctEventNames(){   
+        return i_Fb_Events_Repository.getDistinctEvents();
+    }
+    
+    
 }

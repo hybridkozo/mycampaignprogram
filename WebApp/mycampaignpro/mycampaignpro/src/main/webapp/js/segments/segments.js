@@ -11,7 +11,7 @@
  */
 var indetifier;
  function addEmployerContent(indetifier){
-           var xhttp = new XMLHttpRequest();
+            var xhttp = new XMLHttpRequest();
                          xhttp.onreadystatechange = function() {
                             var data,x = "",i,flen; 
                             if (this.readyState === 4 && this.status === 200) {
@@ -20,9 +20,9 @@ var indetifier;
                                  
                                  if (data!==null){
                                      for (i=0;i<flen;i++){
-                                      //x+= "<option>" + data[i] + "</option>";
+                                      x+= "<option>" + data[i] + "</option>";
                                      }
-                                     x="<option>malaka</option>";
+                                    
                                      document.getElementById(indetifier).innerHTML = x;
                                  }
                                  

@@ -50,5 +50,12 @@ public class IFbBooksController {
         return i_Fb_Books_Repository.findByUserId(i_User.getI_user_id());
     }
     
+    @RequestMapping("/getDistinctFavoriteBooks")
+    public List<String> getDistinctFavoriteBooks(){   
+        return i_Fb_Books_Repository.getDistinctFavoriteBooks();
+    }
+    
+    
+    
     
 }

@@ -23,4 +23,8 @@ public interface I_Fb_Music_Repository extends CrudRepository<I_Fb_Music, Long>{
     @Query("SELECT p FROM I_Fb_Music p WHERE p.i_user_id = :i_user_id")
     public List<I_Fb_Music> findByUserId(@Param("i_user_id") Long i_user_id);
     
+    
+    @Query("SELECT DISTINCT p.i_music_title FROM I_Fb_Music p WHERE p.i_music_title is not null")
+    public List<String> getDistinctFavoriteMusic();
+    
 }

@@ -63,4 +63,9 @@ public class IWorkInfoController {
         return i_Work_Info_Repository.returnDistinctWorkEmployers();
     }
     
+    @RequestMapping("/getDistinctAllWorkPositions")
+    public List<String> getDistinctAllWorkPositions(){
+        return i_Work_Info_Repository.returnDistinctWorkPositions();
+    }
+    
 }

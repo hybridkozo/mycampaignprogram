@@ -9,8 +9,9 @@
   <meta name="author" content="">
   <title>SB Admin - Start Bootstrap Template</title>
    
-   
-  <!-- Bootstrap core CSS-->
+  <link rel="stylesheet" href="Chosen/chosen.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+ <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -18,10 +19,9 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-  <!-- Latest compiled and minified CSS -->
-   <link rel="stylesheet" href="Chosen/chosen.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> 
+  <script src="js/segments/segments.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
+  <script src="segments.js"></script>
    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script>
              $(function() {
@@ -29,10 +29,6 @@
         $('.chosen-select-deselect').chosen({ allow_single_deselect: true });
       });
     </script>
-     <!--Script Definitions-->
-  <script src="js/segments/segments.js"></script>
- 
-  
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -283,9 +279,7 @@
                   </tr>                
               </tbody>
             </table>
-                        <select id="mine" data-placeholder="Employer" multiple class="chosen-select" tabindex="8">
-                        <script>addEmployerContent("mine");</script>
-                        </select>
+                        
                     </div>
                 </div>
                 </div>
@@ -409,19 +403,20 @@
                             
                                     
                                     
-                                    
+                                    <select id="thisid" onchange="alert('New Choose')" data-placeholder="Employer" multiple class="chosen-select" tabindex="8">
+                        
+                        </select>
+                        <script>addEmployerContent("thisid");</script>
                                     
                                     
                                     
                               
-                              <select data-placeholder="Position" multiple class="chosen-select" tabindex="8">
+                              <select id="positionId" data-placeholder="Position" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->
-                                    <option>Software Engineer</option>
-                                    <option>Director</option>
-                                    <option>Secretary</option>
-                                    <option>Sales</option>
-                                    <option>Support</option>                           
+                                                               
                               </select>
+                              <script>addWorkPosition("positionId");
+                            </script>
                             </div>
                             
                        <div class="form-group">
@@ -465,40 +460,32 @@
                             
                             
                              <div class="form-group">
-                                <select data-placeholder="Favorite Books" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                    <option>Secret</option>
-                                    <option>The Black Hole</option>
-                                    <option>Winter</option>                           
+                                <select id="bookId" data-placeholder="Favorite Books" multiple class="chosen-select" tabindex="8">
+                                                             
                               </select>
-                              <select data-placeholder="Sport Teams" multiple class="chosen-select" tabindex="8">
+                                 <script>addFavoriteBooks("bookId")</script>
+                              <select id="sportTeamId" data-placeholder="Sport Teams" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->
-                                    <option>AEK</option>
-                                    <option>PAO</option>
-                                    <option>PAOK</option>
-                                    <option>OSFP</option>                           
+                                                 
                               </select>
-                                  <select data-placeholder="Intresting Events" multiple class="chosen-select" tabindex="8">
+                                 <script>addFavoriteSportTeams("sportTeamId");</script>
+                                 
+                                  <select id="eventId" data-placeholder="Intresting Events" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->
-                                    <option>Matala beach festival</option>
-                                    <option>Christmas Tree</option>
-                                    <option>Tonis Sfinos</option>
-                                    <option>Trubar</option>                          
+                                                          
                               </select>
+                                 <script>addEventNames("eventId");</script>
                                 
-                              <select data-placeholder="Favorite Music" multiple class="chosen-select" tabindex="8">
+                              <select id="musicId" data-placeholder="Favorite Music" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->
-                                    <option>Eminem</option>
-                                    <option>Tonis Sfinos</option>
-                                    <option>Bob Marley</option>
-                                    <option>David Guetta</option>                          
+                                                
                               </select>
-                                 <select data-placeholder="Intesting Pages" multiple class="chosen-select" tabindex="8">
+                                 <script>addFavoriteMusic("musicId")</script>
+                                 <select id="pageId" data-placeholder="Intesting Pages" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->
-                                    <option>Almasport</option>
-                                    <option>Zara</option>
-                                    <option>Pull n Bear</option>                         
+                                                          
                               </select>
+                                 <script>addFavoritepages("pageId");</script>
                             </div>
                             
                              <div class="form-group">        
@@ -544,7 +531,16 @@
         </div>
       </div>
     </div>
-    <!-- Bootstrap core JavaScript-->
+ 
+  
+ 
+
+  
+  </div>
+  
+  </div>
+  
+   <!-- Bootstrap core JavaScript-->
     <!--script src="vendor/jquery/jquery.min.js"></script-->
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
@@ -556,12 +552,6 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
-  
- 
-
-  
-  </div>
-  
 
 
 </body>

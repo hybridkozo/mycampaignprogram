@@ -49,4 +49,9 @@ public class IFbMusicController {
         return i_Fb_Music_Repository.findByUserId(i_User.getI_user_id());
     }
     
+     @RequestMapping("/getDistinctFavoriteMusic")
+    public List<String> getDistinctFavoriteMusic(){   
+        return i_Fb_Music_Repository.getDistinctFavoriteMusic();
+    }
+    
 }

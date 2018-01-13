@@ -24,4 +24,7 @@ public interface I_Fb_Books_Repository extends CrudRepository<I_Fb_Books, Long>{
     @Query("SELECT p FROM I_Fb_Books p WHERE p.i_user_id = :i_user_id")
     public List<I_Fb_Books> findByUserId(@Param("i_user_id") Long i_user_id);
     
+    @Query("SELECT DISTINCT p.i_book_name FROM I_Fb_Books p WHERE p.i_book_name is not null")
+    public List<String> getDistinctFavoriteBooks();
+    
 }

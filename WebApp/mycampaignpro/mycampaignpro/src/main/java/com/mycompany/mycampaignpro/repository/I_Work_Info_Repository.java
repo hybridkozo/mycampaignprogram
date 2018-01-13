@@ -28,4 +28,8 @@ public interface I_Work_Info_Repository extends CrudRepository<I_Work_Info, Long
     @Query("SELECT DISTINCT p.i_work_employer FROM I_Work_Info p WHERE p.i_work_employer is not null")
     public List<String> returnDistinctWorkEmployers();
     
+    
+   @Query("SELECT DISTINCT p.i_work_position FROM I_Work_Info p WHERE p.i_work_position is not null")
+    public List<String> returnDistinctWorkPositions();
+    
 }

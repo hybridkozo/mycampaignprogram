@@ -52,4 +52,20 @@ public class IEducationInfoController {
         return i_Education_Repository.findByUserId(i_User.getI_user_id());
     }
     
+    
+      @RequestMapping("/getDistinctEduSchool")
+    public List<String> getDistinctEduSchool(){   
+        return i_Education_Repository.getDistinctEduSchool();
+    }
+    
+      @RequestMapping("/getDistinctEduDegree")
+    public List<String> getDistinctEduDegree(){   
+        return i_Education_Repository.getDistinctEduDegree();
+    }
+    
+      @RequestMapping("/getDistinctEduYear")
+    public List<String> getDistinctEduYear(){   
+        return i_Education_Repository.getDistinctEduYear();
+    }
+    
 }
