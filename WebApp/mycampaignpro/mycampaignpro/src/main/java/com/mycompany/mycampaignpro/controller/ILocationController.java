@@ -50,5 +50,30 @@ public class ILocationController {
         return i_Location_Repository.findByUserId(i_User.getI_user_id());
     }
     
+    @RequestMapping("/getDistinctCountyNames")
+    public List<String> getDistinctCountyNames(){
+        return i_Location_Repository.getDistinctCountyNames();
+    }
+    
+     @RequestMapping("/getDistinctDepartmentNames")
+    public List<String> getDistinctDepartmentNames(){
+        return i_Location_Repository.getDistinctDepartmentNames();
+    }
+    
+    @RequestMapping("/getDistinctPrefectureNames")
+    public List<String> getDistinctPrefectureNames(){
+        return i_Location_Repository.getDistinctPrefectureNames();
+    }
+    
+    @RequestMapping("/getDistinctCityNames")
+    public List<String> getDistinctCityNames(){
+        return i_Location_Repository.getDistinctCityNames();
+    }
+    
+    @RequestMapping("/getDistinctPostalCodes")
+    public List<String> getDistinctPostalCodes(){
+        return i_Location_Repository.getDistinctPostalCodes();
+    }
+    
     
 }

@@ -21,7 +21,7 @@
   <link href="css/sb-admin.css" rel="stylesheet">
   <script src="js/segments/segments.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
-  <script src="segments.js"></script>
+  <script src="js/segments/segments.js"></script>
    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script>
              $(function() {
@@ -323,64 +323,30 @@
                             <div class="form-group"> 
                                 
                                 
-                              
-                             <select data-placeholder="Country Code" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->
-                                <option>GR</option>
-                                <option>DE</option>
-                                <option>SP</option>
-                                <option>SW</option>
-                                <option>PR</option>                              
+                              <select id="locationCountryId" data-placeholder="Country Name" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->                           
                               </select>
-                              <select data-placeholder="Country Name" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->
-                                <option>Greece</option>
-                                <option>Italy</option>
-                                <option>Spain</option>
-                                <option>Poland</option>
-                                <option>Romania</option>                           
-                              </select>
-                              <select data-placeholder="City Name" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->
-                                <option>Athens</option>
-                                <option>Rome</option>
-                                <option>Kalamata</option>
-                                <option>Thessalonikh</option>
-                                <option>Tripoli</option>                           
-                              </select>
-                               <select data-placeholder="Prefecture" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->
-                                <option>Messinia</option>
-                                <option>Attiki</option>
-                                <option>Thessalia</option>
-                                <option>Arkadia</option>
-                                <option>Xaniwn</option>                           
-                              </select>  
+                                <script>addLocationCountryNames("locationCountryId");</script>
+                             
+                                 <select id="locationDepartmentId" data-placeholder="Department" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->                          
+                              </select> 
+                                <script>addLocationDepartmentNames("locationDepartmentId");</script>
+                               <select id="locationPrefectureId" data-placeholder="Prefecture" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->                          
+                              </select> 
                                 
-                              <select data-placeholder="Department" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->
-                                <option>Peloponissos</option>
-                                <option>Attica</option>
-                                <option>Kriti</option>
-                                <option>Sterea ellada</option>
-                                <option>Dwdekanisa</option>                           
-                              </select>  
-                                <select data-placeholder="Street Address" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->
-                                <option>Sarwnos 3</option>
-                                <option>Praksitelous 56</option>
-                                <option>polutexniou</option>
-                                <option>papalamplenas</option>
-                                <option>Kokobiou</option>                           
+                                <script>addLocationPrefectureNames("locationPrefectureId");</script>
+                                
+                                 <select id="locationCityId" data-placeholder="City Name" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->                 
+                              </select> 
+                                <script>addLocationCityNames("locationCityId");</script>
+                                
+                                <select id="locationPostalCodeId" data-placeholder="Postal Code" multiple class="chosen-select" tabindex="8">
+                                <!--option value=""></option-->                           
                               </select>
-                                <select data-placeholder="Postal Code" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->
-                                <option>11143</option>
-                                <option>24100</option>
-                                <option>11155</option>
-                                <option>11236</option>
-                                <option>14562</option>                           
-                              </select>
+                                <script>addLocationPostalCodes("locationPostalCodeId");</script>
                                   
                             </div>
                             
@@ -403,10 +369,13 @@
                             
                                     
                                     
-                                    <select id="thisid" onchange="alert('New Choose')" data-placeholder="Employer" multiple class="chosen-select" tabindex="8">
-                        
+                                    <select id="thisid" onchange="findElement()" data-placeholder="Employer" multiple class="chosen-select" tabindex="8">
+                                              
                         </select>
-                        <script>addEmployerContent("thisid");</script>
+                        <script>addEmployerContent("thisid");
+                       
+                        </script>
+                        
                                     
                                     
                                     
@@ -427,27 +396,18 @@
                             
                             
                              <div class="form-group">
-                                <select data-placeholder="School" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                    <option>University of Piraeus</option>
-                                    <option>Technological institute of Crete</option>
-                                    <option>University of Athens</option>                           
+                                <select id="eduSchoolId" data-placeholder="School" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->                          
                               </select>
-                              <select data-placeholder="Degree" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                    <option>Master</option>
-                                    <option>Bachelor</option>
-                                    <option>Entry</option>
-                                    <option>Doctor</option>                           
+                                 <script>addEduSchool("eduSchoolId");</script>
+                              <select id="eduDegreeId" data-placeholder="Degree" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->                          
                               </select>
-                                  <select data-placeholder="Year" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                    <option>2000</option>
-                                    <option>2005</option>
-                                    <option>2013</option>
-                                    <option>2018</option>
-                                    <option>2003</option>                           
+                                 <script>addEduDegree("eduDegreeId");</script>
+                                  <select id="eduYearId" data-placeholder="Year" multiple class="chosen-select" tabindex="8">
+                                    <!--option value=""></option-->                          
                               </select>
+                                 <script>addEduYear("eduYearId");</script>
                             </div>
                             
                             

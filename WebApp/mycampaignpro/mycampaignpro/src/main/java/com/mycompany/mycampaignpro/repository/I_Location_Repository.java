@@ -23,4 +23,19 @@ public interface I_Location_Repository extends CrudRepository<I_Location, Long>{
     @Query("SELECT p FROM I_Location p WHERE p.i_user_id = :i_user_id")
     public List<I_Location> findByUserId(@Param("i_user_id") Long i_user_id);
     
+    @Query("SELECT DISTINCT p.i_country_name FROM I_Location p WHERE p.i_country_name!='null' and p.i_country_name is not null")
+    public List<String> getDistinctCountyNames();
+    
+     @Query("SELECT DISTINCT p.i_department FROM I_Location p WHERE p.i_department!='null' and p.i_department is not null")
+    public List<String> getDistinctDepartmentNames();
+    
+     @Query("SELECT DISTINCT p.i_prefecture FROM I_Location p WHERE p.i_prefecture!='null' and p.i_prefecture is not null")
+    public List<String> getDistinctPrefectureNames();
+    
+    @Query("SELECT DISTINCT p.i_city_name FROM I_Location p WHERE p.i_city_name!='null' and p.i_city_name is not null")
+    public List<String> getDistinctCityNames();
+    
+     @Query("SELECT DISTINCT p.i_postal_code FROM I_Location p WHERE p.i_postal_code!='null' and p.i_postal_code is not null")
+    public List<String> getDistinctPostalCodes();
+    
 }
