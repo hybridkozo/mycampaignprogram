@@ -10,9 +10,13 @@ import com.mycompany.mycampaignpro.model.I_Work_Info;
 import com.mycompany.mycampaignpro.model.responseObject.ResponseObject;
 import com.mycompany.mycampaignpro.repository.I_User_Repository;
 import com.mycompany.mycampaignpro.repository.I_Work_Info_Repository;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -66,6 +70,14 @@ public class IWorkInfoController {
     @RequestMapping("/getDistinctAllWorkPositions")
     public List<String> getDistinctAllWorkPositions(){
         return i_Work_Info_Repository.returnDistinctWorkPositions();
+    }
+    
+    @RequestMapping(value = "/getDistinctAllWorkPositionsViaFilter", method = RequestMethod.POST)
+    public List<String> getDistinctAllWorkPositionsViaFilter(@RequestBody List<String> string){
+        //List<String> data =new ArrayList<String>();
+        
+      
+        return i_Work_Info_Repository.returnDistinctWorkPositionsViaFilter(string);
     }
     
 }

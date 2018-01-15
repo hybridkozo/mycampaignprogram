@@ -257,7 +257,7 @@
     <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Segment List
-          <button style="float: right;" type="button" class="btn btn-success" onclick="newSegment()">New Segment</button>  
+          <button style="float: right;" type="button" class="btn btn-success" onclick="segments.newSegment()">New Segment</button>  
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -326,27 +326,27 @@
                               <select id="locationCountryId" data-placeholder="Country Name" multiple class="chosen-select" tabindex="8">
                                 <!--option value=""></option-->                           
                               </select>
-                                <script>addLocationCountryNames("locationCountryId");</script>
+                                <script>segments.addLocationCountryNames("locationCountryId");</script>
                              
                                  <select id="locationDepartmentId" data-placeholder="Department" multiple class="chosen-select" tabindex="8">
                                 <!--option value=""></option-->                          
                               </select> 
-                                <script>addLocationDepartmentNames("locationDepartmentId");</script>
+                                <script>segments.addLocationDepartmentNames("locationDepartmentId");</script>
                                <select id="locationPrefectureId" data-placeholder="Prefecture" multiple class="chosen-select" tabindex="8">
                                 <!--option value=""></option-->                          
                               </select> 
                                 
-                                <script>addLocationPrefectureNames("locationPrefectureId");</script>
+                                <script>segments.addLocationPrefectureNames("locationPrefectureId");</script>
                                 
                                  <select id="locationCityId" data-placeholder="City Name" multiple class="chosen-select" tabindex="8">
                                 <!--option value=""></option-->                 
                               </select> 
-                                <script>addLocationCityNames("locationCityId");</script>
+                                <script>segments.addLocationCityNames("locationCityId");</script>
                                 
                                 <select id="locationPostalCodeId" data-placeholder="Postal Code" multiple class="chosen-select" tabindex="8">
                                 <!--option value=""></option-->                           
                               </select>
-                                <script>addLocationPostalCodes("locationPostalCodeId");</script>
+                                <script>segments.addLocationPostalCodes("locationPostalCodeId");</script>
                                   
                             </div>
                             
@@ -369,10 +369,10 @@
                             
                                     
                                     
-                                    <select id="thisid" onchange="findElement()" data-placeholder="Employer" multiple class="chosen-select" tabindex="8">
+                                    <select id="thisid" onchange="segments.findElement()" data-placeholder="Employer" multiple class="chosen-select" tabindex="8">
                                               
                         </select>
-                        <script>addEmployerContent("thisid");
+                        <script>segments.addEmployerContent("thisid");
                        
                         </script>
                         
@@ -384,7 +384,7 @@
                                     <!--option value=""></option-->
                                                                
                               </select>
-                              <script>addWorkPosition("positionId");
+                              <script>segments.addWorkPosition("positionId",null);
                             </script>
                             </div>
                             
@@ -399,15 +399,15 @@
                                 <select id="eduSchoolId" data-placeholder="School" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->                          
                               </select>
-                                 <script>addEduSchool("eduSchoolId");</script>
+                                 <script>segments.addEduSchool("eduSchoolId");</script>
                               <select id="eduDegreeId" data-placeholder="Degree" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->                          
                               </select>
-                                 <script>addEduDegree("eduDegreeId");</script>
+                                 <script>segments.addEduDegree("eduDegreeId");</script>
                                   <select id="eduYearId" data-placeholder="Year" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->                          
                               </select>
-                                 <script>addEduYear("eduYearId");</script>
+                                 <script>segments.addEduYear("eduYearId");</script>
                             </div>
                             
                             
@@ -423,29 +423,29 @@
                                 <select id="bookId" data-placeholder="Favorite Books" multiple class="chosen-select" tabindex="8">
                                                              
                               </select>
-                                 <script>addFavoriteBooks("bookId")</script>
+                                 <script>segments.addFavoriteBooks("bookId")</script>
                               <select id="sportTeamId" data-placeholder="Sport Teams" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->
                                                  
                               </select>
-                                 <script>addFavoriteSportTeams("sportTeamId");</script>
+                                 <script>segments.addFavoriteSportTeams("sportTeamId");</script>
                                  
                                   <select id="eventId" data-placeholder="Intresting Events" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->
                                                           
                               </select>
-                                 <script>addEventNames("eventId");</script>
+                                 <script>segments.addEventNames("eventId");</script>
                                 
                               <select id="musicId" data-placeholder="Favorite Music" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->
                                                 
                               </select>
-                                 <script>addFavoriteMusic("musicId")</script>
+                                 <script>segments.addFavoriteMusic("musicId")</script>
                                  <select id="pageId" data-placeholder="Intesting Pages" multiple class="chosen-select" tabindex="8">
                                     <!--option value=""></option-->
                                                           
                               </select>
-                                 <script>addFavoritepages("pageId");</script>
+                                 <script>segments.addFavoritepages("pageId");</script>
                             </div>
                             
                              <div class="form-group">        
