@@ -28,6 +28,32 @@ var segments = {
              
  },
  
+ testFunction: function(){
+     
+     var i;
+        var itemList = [];
+        var data;
+        var rootList = document.getElementById("thisid_chosen").getElementsByClassName("result-selected");
+         
+        vlen = rootList.length;
+     
+        if(vlen >0 ){
+             for (i=0;i<vlen;i++){
+                 alert(rootList[i].innerHTML);
+                 itemList.push(rootList[i].innerHTML);
+             }
+            
+             data = '["' + itemList.join('", "') + '"]';
+             alert("BRRBBRBR " + data);
+             segments.addWorkPosition("positionId",data);
+              
+              }else{
+                  data=null;
+                  segments.addWorkPosition("positionId",data);
+              }
+     
+ },
+ 
  findElement: function(){
         var i;
         var itemList = [];
@@ -91,7 +117,7 @@ var segments = {
                             if (this.readyState === 4 && this.status === 200) {
                                  data = JSON.parse(this.responseText);
                                flen = data.length;
-                                 
+                                 x='<option value=""></option>';
                                  if (data!==null){
                                      for (i=0;i<flen;i++){
                                       x+= "<option>" + data[i] + "</option>";
@@ -111,7 +137,7 @@ var segments = {
                                 xhr.setRequestHeader("Content-type", "application/json");
                                 
                                 xhr.onreadystatechange = function () {
-                                    var data,x = "",i,flen; 
+                                    var data,x,z,final,i,flen; 
                                     if (xhr.readyState === 4 && xhr.status === 200) {
                                            
                                             data = JSON.parse(xhr.responseText);
@@ -124,12 +150,11 @@ var segments = {
                                                     x+= '<option value="' + data[i] + '">' + data[i] + '</option>';
                                                 }
                                                 alert("The x is" + x);
-                                                document.getElementById(positionId).innerHTML = x;
+                                                document.getElementById("positionId").innerHTML = x;
                                              }
                                      }
                                 };
                           
-                                //var dataList = JSON.stringify(argList);
                                 alert(argList);
                                 xhr.send(argList);
 
