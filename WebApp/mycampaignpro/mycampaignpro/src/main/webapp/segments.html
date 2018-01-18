@@ -23,6 +23,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
   <script src="js/segments/segments.js"></script>
    <script src="js/segments/Target_Work.js"></script>
+   <script src="js/segments/Extra_Information.js"></script>
   
    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script>
@@ -407,7 +408,7 @@
                                     <script>segments.addFavoriteSportTeams("teamSelect");</script>
                                 </div>
                                 <div style="float: left;margin: 5px;">
-                                    <button class="btn btn-outline-secondary" type="button" id="teamButton" onclick="extrainformation.selectTeams()">+ Events</button>
+                                    <button class="btn btn-outline-secondary" type="button" id="eventButton" onclick="extrainformation.selectEvents()">+ Events</button>
                                     <select id="eventSelect" multiple style="display: none"></select>
                                     <script>segments.addEventNames("eventSelect");</script>
                                 </div>
@@ -417,9 +418,12 @@
                                     <script>segments.addFavoriteMusic("musicSelect")</script>
                                 </div>
                                 <div style="float: left;margin: 5px;">
-                                    <button class="btn btn-outline-secondary" type="button" id="pageButton" onclick="extrainformation.selectMusic()">+ Pages</button>
+                                    <button class="btn btn-outline-secondary" type="button" id="pageButton" onclick="extrainformation.selectPages()">+ Pages</button>
                                     <select id="pageSelect" multiple style="display: none"></select>
                                     <script>segments.addFavoritepages("pageSelect");</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                    <button class="btn btn-link" type="button" id="resetExtraInfoButton" onclick="extrainformation.resetExtraInfoFilter()" style="display:none">Reset Filter</button> 
                                 </div>
                             </div>
                             
