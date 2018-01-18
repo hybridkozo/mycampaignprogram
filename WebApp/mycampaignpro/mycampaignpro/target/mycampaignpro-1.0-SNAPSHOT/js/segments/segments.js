@@ -90,7 +90,7 @@ var segments = {
                             if (this.readyState === 4 && this.status === 200) {
                                  data = JSON.parse(this.responseText);
                                flen = data.length;
-                                 x='<option value=""></option>';
+                                 
                                  if (data!==null){
                                      for (i=0;i<flen;i++){
                                       x+= '<option value="' + data[i] + '">' + data[i] + '</option>';
@@ -117,7 +117,7 @@ var segments = {
                             if (this.readyState === 4 && this.status === 200) {
                                  data = JSON.parse(this.responseText);
                                flen = data.length;
-                                 x='<option value=""></option>';
+                                 
                                  if (data!==null){
                                      for (i=0;i<flen;i++){
                                       x+= "<option>" + data[i] + "</option>";
@@ -144,7 +144,7 @@ var segments = {
                                             
                                             alert("The response is:" + data);
                                             flen = data.length;
-                                             x='<option value=""></option>';
+                                            
                                              if (data!==null){
                                                 for (i=0;i<flen;i++){
                                                     x+= '<option value="' + data[i] + '">' + data[i] + '</option>';

@@ -310,6 +310,9 @@ body.sidenav-toggled .navbar-sidenav-tooltip.show {
   -webkit-transform: rotate(15deg);
   -ms-transform: rotate(15deg);
   transform: rotate(15deg); }
+.card-header{
+    clear: both;
+}
 
 @media (min-width: 576px) {
   .card-columns {

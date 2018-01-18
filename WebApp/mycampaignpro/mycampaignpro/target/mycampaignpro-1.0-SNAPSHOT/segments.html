@@ -22,6 +22,8 @@
   <script src="js/segments/segments.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.4.2/chosen.jquery.js"></script>
   <script src="js/segments/segments.js"></script>
+   <script src="js/segments/Target_Work.js"></script>
+  
    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script>
              $(function() {
@@ -257,7 +259,7 @@
     <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-table"></i> Segment List
-          <button style="float: right;" type="button" class="btn btn-success" onclick="segments.newSegment()">New Segment</button>  
+          <button style="float: right;" type="button" class="btn btn-outline-success" onclick="segments.newSegment()">New Segment</button>  
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -293,8 +295,7 @@
     <div id="newSegment" style="display:none">
         <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-file-text"></i> New Segment
-           
+          <i class="fa fa-file-text"></i> New Segment         
         </div>
         <div class="card-body">
                 <div class="row">
@@ -314,146 +315,123 @@
                             </div>
                      
                            
-                        <div class="form-group">
-                         <div class="card-header">
-                            <i class="fa fa-location-arrow"></i> Target Location        
-                         </div>
+                            <div class="form-group">
+                                <div class="card-header">
+                                    <i class="fa fa-location-arrow"></i> Target Location        
+                                </div>
                             </div>
                         
                             <div class="form-group"> 
-                                
-                                
-                              <select id="locationCountryId" data-placeholder="Country Name" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->                           
-                              </select>
+                               
+                                <select id="locationCountryId" data-placeholder="Country Name" multiple class="chosen-select" tabindex="8"></select>
                                 <script>segments.addLocationCountryNames("locationCountryId");</script>
                              
-                                 <select id="locationDepartmentId" data-placeholder="Department" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->                          
-                              </select> 
+                                <select id="locationDepartmentId" data-placeholder="Department" multiple class="chosen-select" tabindex="8"></select> 
                                 <script>segments.addLocationDepartmentNames("locationDepartmentId");</script>
-                               <select id="locationPrefectureId" data-placeholder="Prefecture" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->                          
-                              </select> 
-                                
+                               
+                                <select id="locationPrefectureId" data-placeholder="Prefecture" multiple class="chosen-select" tabindex="8"></select> 
                                 <script>segments.addLocationPrefectureNames("locationPrefectureId");</script>
                                 
-                                 <select id="locationCityId" data-placeholder="City Name" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->                 
-                              </select> 
+                                <select id="locationCityId" data-placeholder="City Name" multiple class="chosen-select" tabindex="8"></select> 
                                 <script>segments.addLocationCityNames("locationCityId");</script>
                                 
-                                <select id="locationPostalCodeId" data-placeholder="Postal Code" multiple class="chosen-select" tabindex="8">
-                                <!--option value=""></option-->                           
-                              </select>
+                                <select id="locationPostalCodeId" data-placeholder="Postal Code" multiple class="chosen-select" tabindex="8"></select>
                                 <script>segments.addLocationPostalCodes("locationPostalCodeId");</script>
                                   
                             </div>
                             
-                             <div class="form-group">
-                         <div class="card-header">
-                            <i class="fa fa-building"></i> Target Work Info        
-                         </div>
+                            <div class="form-group">
+                                <div class="card-header">
+                                   <i class="fa fa-building"></i> Target Work Info        
+                                </div>
                             </div>
                             
                             <div class="form-group">
-                                
-                                <!--select id="employer" data-placeholder="Eployer" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                    <!--option>Microsoft</option>
-                                    <option>AB Basilopoulos</option>
-                                    <option>Public</option>
-                                    <option>Plaisio</option>
-                                    <option>E-Shop</option--> 
-                                    
-                            
-                                    
-                                    
-                                    <select id="thisid" data-placeholder="Employer" multiple class="chosen-select" tabindex="8">
-                                              
-                        </select>
-                                    
-                        <script>segments.addEmployerContent("thisid");
-                       
-                        </script>
-                                
-                           
-                              <select id="positionId" data-placeholder="Position" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                                               
-                              </select>
-                        
-                              <script>segments.addWorkPosition("positionId",null);
-                            </script>
+                                <div style="float: left;margin: 5px;">
+                                <select id="employerSelect" multiple style="display:none"></select>
+                                <script>segments.addEmployerContent("employerSelect");</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                <select id="positionSelect" multiple style="display:none"></select>
+                                <script>segments.addWorkPosition("positionSelect",null);</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                <button class="btn btn-outline-secondary" type="button" id="employerButton" onclick="targetwork.selectEmployer()">+ Employer</button>    
+                                <button class="btn btn-outline-secondary" type="button" id="positionButton" onclick="targetwork.selectPosition()" style="display:none">+ Position</button> 
+                                <button class="btn btn-link" type="button" id="resetButton" onclick="targetwork.resetWorkFilter()" style="display:none">Reset Filter</button> 
+
+                                </div>
                             </div>
                             
                             
-                       <div class="form-group">
-                         <div class="card-header">
-                            <i class="fa fa-book"></i> Target Education        
-                         </div>
-                       </div>
+                            <div class="form-group">
+                                <div class="card-header">
+                                   <i class="fa fa-book"></i> Target Education        
+                                </div>
+                            </div>
                             
                             
-                             <div class="form-group">
-                                <select id="eduSchoolId" data-placeholder="School" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->                          
-                              </select>
-                                 <script>segments.addEduSchool("eduSchoolId");</script>
-                              <select id="eduDegreeId" data-placeholder="Degree" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->                          
-                              </select>
-                                 <script>segments.addEduDegree("eduDegreeId");</script>
-                                  <select id="eduYearId" data-placeholder="Year" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->                          
-                              </select>
-                                 <script>segments.addEduYear("eduYearId");</script>
+                            <div class="form-group">
+                                <div style="float: left;margin: 5px;">
+                                    <select id="eduSchoolId" multiple></select>
+                                    <script>segments.addEduSchool("eduSchoolId");</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                    <select id="eduDegreeId" multiple></select>
+                                    <script>segments.addEduDegree("eduDegreeId");</script>
+                                </div>
+                                <div>
+                                    <select id="eduYearId" multiple></select>
+                                    <script>segments.addEduYear("eduYearId");</script>
+                                </div>
                             </div>
                             
                             
                             
                             <div class="form-group">
-                         <div class="card-header">
-                            <i class="fa fa-info-circle"></i> Extra Information        
-                         </div>
-                       </div>
-                            
-                            
-                             <div class="form-group">
-                                <select id="bookId" data-placeholder="Favorite Books" multiple class="chosen-select" tabindex="8">
-                                                             
-                              </select>
-                                 <script>segments.addFavoriteBooks("bookId")</script>
-                              <select id="sportTeamId" data-placeholder="Sport Teams" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                                 
-                              </select>
-                                 <script>segments.addFavoriteSportTeams("sportTeamId");</script>
-                                 
-                                  <select id="eventId" data-placeholder="Intresting Events" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                                          
-                              </select>
-                                 <script>segments.addEventNames("eventId");</script>
-                                
-                              <select id="musicId" data-placeholder="Favorite Music" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                                
-                              </select>
-                                 <script>segments.addFavoriteMusic("musicId")</script>
-                                 <select id="pageId" data-placeholder="Intesting Pages" multiple class="chosen-select" tabindex="8">
-                                    <!--option value=""></option-->
-                                                          
-                              </select>
-                                 <script>segments.addFavoritepages("pageId");</script>
+                                <div class="card-header">
+                                    <i class="fa fa-info-circle"></i> Extra Information        
+                                </div>
                             </div>
                             
-                             <div class="form-group">        
-                              <div class="col-sm-offset-2 col-sm-10">
-                                <button type="button" class="btn btn-success" onclick="newSegment()">Save</button>
+                            
+                            <div class="form-group">
+                                <div style="float: left;margin: 5px;">
+                                    <button class="btn btn-outline-secondary" type="button" id="bookButton" onclick="extrainformation.selectBooks()">+ Books</button>
+                                    <select id="bookSelect" multiple style="display: none"></select>
+                                    <script>segments.addFavoriteBooks("bookSelect")</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                    <button class="btn btn-outline-secondary" type="button" id="teamButton" onclick="extrainformation.selectTeams()">+ Teams</button>
+                                    <select id="teamSelect" multiple style="display: none"></select>
+                                    <script>segments.addFavoriteSportTeams("teamSelect");</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                    <button class="btn btn-outline-secondary" type="button" id="teamButton" onclick="extrainformation.selectTeams()">+ Events</button>
+                                    <select id="eventSelect" multiple style="display: none"></select>
+                                    <script>segments.addEventNames("eventSelect");</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                    <button class="btn btn-outline-secondary" type="button" id="musicButton" onclick="extrainformation.selectMusic()">+ Music</button>
+                                    <select id="musicSelect" multiple style="display: none"></select>
+                                    <script>segments.addFavoriteMusic("musicSelect")</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                    <button class="btn btn-outline-secondary" type="button" id="pageButton" onclick="extrainformation.selectMusic()">+ Pages</button>
+                                    <select id="pageSelect" multiple style="display: none"></select>
+                                    <script>segments.addFavoritepages("pageSelect");</script>
+                                </div>
+                            </div>
+                            
+                            <div  class="form-group" style="clear: both;">  
+                                
+                              <div style="float: right;" class="col-sm-offset-2 col-sm-2">
+                                <button  type="button" class="btn btn-outline-warning" onclick="newSegment()">Cancel</button>  
+                                <button  type="button" class="btn btn-outline-success" onclick="newSegment()">Save</button>
                               </div>
+                                
                             </div>
-                          </form>
+                        </form>
 
 
                     </div>
