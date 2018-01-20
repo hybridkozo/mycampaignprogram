@@ -34,5 +34,12 @@ public interface I_Education_Repository extends CrudRepository<I_Education_Info,
     public List<String> getDistinctEduYear();
     
     
+    @Query("SELECT DISTINCT p.i_edu_degree FROM I_Education_Info p WHERE p.i_edu_degree is not null and p.i_edu_school in(:data)")
+    public List<String> returnDistinctEduDegreeViaFilter(@Param("data") List<String> data);
+    
+     @Query("SELECT DISTINCT p.i_edu_year FROM I_Education_Info p WHERE p.i_edu_year is not null and p.i_edu_degree in(:data)")
+    public List<String> returnDistinctEduYearViaFilter(@Param("data") List<String> data);
+    
+    
     
 }

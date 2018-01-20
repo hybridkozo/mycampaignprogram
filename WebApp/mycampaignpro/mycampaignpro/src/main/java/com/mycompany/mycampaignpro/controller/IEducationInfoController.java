@@ -12,7 +12,9 @@ import com.mycompany.mycampaignpro.repository.I_Education_Repository;
 import com.mycompany.mycampaignpro.repository.I_User_Repository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -66,6 +68,18 @@ public class IEducationInfoController {
       @RequestMapping("/getDistinctEduYear")
     public List<String> getDistinctEduYear(){   
         return i_Education_Repository.getDistinctEduYear();
+    }
+    
+     @RequestMapping(value = "/getDistinctAllEduDegreeViaFilter", method = RequestMethod.POST)
+    public List<String> getDistinctAllEduDegreeViaFilter(@RequestBody List<String> string){
+      
+        return i_Education_Repository.returnDistinctEduDegreeViaFilter(string);
+    }
+    
+      @RequestMapping(value = "/getDistinctAllEduYearViaFilter", method = RequestMethod.POST)
+    public List<String> getDistinctAllEduYearViaFilter(@RequestBody List<String> string){
+      
+        return i_Education_Repository.returnDistinctEduYearViaFilter(string);
     }
     
 }

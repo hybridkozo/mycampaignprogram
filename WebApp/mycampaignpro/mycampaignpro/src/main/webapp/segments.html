@@ -24,6 +24,8 @@
   <script src="js/segments/segments.js"></script>
    <script src="js/segments/Target_Work.js"></script>
    <script src="js/segments/Extra_Information.js"></script>
+   <script src="js/segments/Target_Education.js"></script>
+   <script src="js/segments/Target_Location.js"></script>
   
    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
     <script>
@@ -323,22 +325,35 @@
                             </div>
                         
                             <div class="form-group"> 
-                               
-                                <select id="locationCountryId" data-placeholder="Country Name" multiple class="chosen-select" tabindex="8"></select>
-                                <script>segments.addLocationCountryNames("locationCountryId");</script>
-                             
-                                <select id="locationDepartmentId" data-placeholder="Department" multiple class="chosen-select" tabindex="8"></select> 
-                                <script>segments.addLocationDepartmentNames("locationDepartmentId");</script>
-                               
-                                <select id="locationPrefectureId" data-placeholder="Prefecture" multiple class="chosen-select" tabindex="8"></select> 
-                                <script>segments.addLocationPrefectureNames("locationPrefectureId");</script>
+                               <div style="float: left;margin: 5px;">
+                                <select id="countrySelect" data-placeholder="Country Name" multiple style="display: none"></select>
+                                <script>segments.addLocationCountryNames("countrySelect");</script>
+                               </div>
                                 
-                                <select id="locationCityId" data-placeholder="City Name" multiple class="chosen-select" tabindex="8"></select> 
-                                <script>segments.addLocationCityNames("locationCityId");</script>
-                                
-                                <select id="locationPostalCodeId" data-placeholder="Postal Code" multiple class="chosen-select" tabindex="8"></select>
-                                <script>segments.addLocationPostalCodes("locationPostalCodeId");</script>
-                                  
+                                <div style="float: left;margin: 5px;">
+                                <select id="departmentSelect" data-placeholder="Department" multiple style="display: none"></select> 
+                                <script>segments.addLocationDepartmentNames("departmentSelect");</script>
+                               </div>
+                                <div style="float: left;margin: 5px;">
+                                <select id="prefectureSelect" data-placeholder="Prefecture" multiple style="display: none"></select> 
+                                <script>segments.addLocationPrefectureNames("prefectureSelect");</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                <select id="citySelect" data-placeholder="City Name" multiple style="display: none"></select> 
+                                <script>segments.addLocationCityNames("citySelect");</script>
+                                </div>
+                                <div style="float: left;margin: 5px;">
+                                <select id="postalSelect" data-placeholder="Postal Code" multiple style="display: none"></select>
+                                <script>segments.addLocationPostalCodes("postalSelect");</script>
+                                </div>  
+                                <div style="float: left;margin: 5px;">
+                                <button class="btn btn-outline-secondary" type="button" id="countryButton" onclick="targetlocation.selectCountry()">+ Country</button>    
+                                <button class="btn btn-outline-secondary" type="button" id="departmentButton" onclick="targetlocation.selectDepartment()" style="display:none">+ Department</button> 
+                                <button class="btn btn-outline-secondary" type="button" id="prefectureButton" onclick="targetlocation.selectPrefecture()" style="display:none">+ Prefecture</button>
+                                <button class="btn btn-outline-secondary" type="button" id="cityButton" onclick="targetlocation.selectCity()" style="display:none">+ City</button> 
+                                <button class="btn btn-outline-secondary" type="button" id="postalButton" onclick="targetlocation.selectPostal()" style="display:none">+ Postal Code</button> 
+                                <button class="btn btn-link" type="button" id="resetLocationButton" onclick="targetlocation.resetLocationFilter()" style="display:none">Reset Filter</button> 
+                                </div>
                             </div>
                             
                             <div class="form-group">
@@ -374,18 +389,28 @@
                             
                             <div class="form-group">
                                 <div style="float: left;margin: 5px;">
-                                    <select id="eduSchoolId" multiple></select>
-                                    <script>segments.addEduSchool("eduSchoolId");</script>
+                                    <select id="schoolSelect" multiple style="display: none"></select>
+                                    <script>segments.addEduSchool("schoolSelect");</script>
+                                </div>
+                                    <div style="float: left;margin: 5px;">
+                                     <select id="degreeSelect" multiple style="display: none"></select>
+                                    <script>segments.addEduDegree("degreeSelect");</script>
+                                    </div>
+                                    <div style="float: left;margin: 5px;">
+                                    <select id="yearSelect" multiple style="display: none"></select>
+                                    <script>segments.addEduYear("yearSelect");</script>
+                                    
                                 </div>
                                 <div style="float: left;margin: 5px;">
-                                    <select id="eduDegreeId" multiple></select>
-                                    <script>segments.addEduDegree("eduDegreeId");</script>
+                                <button class="btn btn-outline-secondary" type="button" id="schoolButton" onclick="targeteducation.selectSchool()">+ School</button>    
+                                <button class="btn btn-outline-secondary" type="button" id="degreeButton" onclick="targeteducation.selectDegree()" style="display:none">+ Degree</button> 
+                                <button class="btn btn-outline-secondary" type="button" id="yearButton" onclick="targeteducation.selectYear()" style="display:none">+ Year</button> 
+                                <button class="btn btn-link" type="button" id="resetEduButton" onclick="targeteducation.resetEduFilter()" style="display:none">Reset Filter</button> 
                                 </div>
-                                <div>
-                                    <select id="eduYearId" multiple></select>
-                                    <script>segments.addEduYear("eduYearId");</script>
-                                </div>
+                                
                             </div>
+                                
+                            
                             
                             
                             
