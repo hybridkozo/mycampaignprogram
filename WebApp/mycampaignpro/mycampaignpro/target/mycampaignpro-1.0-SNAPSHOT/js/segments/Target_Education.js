@@ -21,11 +21,11 @@ var targeteducation = {
       var butDegree = document.getElementById('degreeButton');
       var butYear = document.getElementById('yearButton');
       var selectedSchoolValues = targeteducation.getSelectValues(selSchool);
-      alert(selectedSchoolValues);
+     
       if(selectedSchoolValues !== null){
           
       }else{
-          alert('Nothing Selected');
+          
       }
       
       selSchool.disabled=true;
@@ -42,11 +42,11 @@ var targeteducation = {
       var selYear = document.getElementById('yearSelect');
       var butYear = document.getElementById('yearButton');
       var selectedDegreeValues = targeteducation.getSelectValues(selDegree);
-      alert(selectedDegreeValues);
+     
       if(selectedDegreeValues !== null){
           
       }else{
-          alert('Nothing Selected');
+         
       }
       
       selDegree.disabled=true;
@@ -159,26 +159,20 @@ addEduSchool: function(eduSchoolId){
                                     if (xhr.readyState === 4 && xhr.status === 200) {
                                            
                                             data = JSON.parse(xhr.responseText);
-                                            
-                                            alert("The response is:" + data);
-                                            flen = data.length;
+                                       flen = data.length;
                                             
                                              if (data!==null){
                                                 for (i=0;i<flen;i++){
                                                     x+= '<option value="' + data[i] + '">' + data[i] + '</option>';
                                                 }
-                                                alert("The x is" + x);
+                                               
                                                 document.getElementById(eduDegreeId).innerHTML = x;
                                              }
                                      }
                                 };
                           
-                                alert(selectedItems);
                                 xhr.send(selectedItems);
 
-                             
-                             alert("The data passed to the other function: " + selectedItems);
-                            
                         }
     },
     
@@ -214,25 +208,21 @@ addEduSchool: function(eduSchoolId){
                                     if (xhr.readyState === 4 && xhr.status === 200) {
                                            
                                             data = JSON.parse(xhr.responseText);
-                                            
-                                            alert("The response is:" + data);
+
                                             flen = data.length;
                                             
                                              if (data!==null){
                                                 for (i=0;i<flen;i++){
                                                     x+= '<option value="' + data[i] + '">' + data[i] + '</option>';
                                                 }
-                                                alert("The x is" + x);
                                                 document.getElementById(eduYearId).innerHTML = x;
                                              }
                                      }
                                 };
                           
-                                alert(selectedItems);
+                                
                                 xhr.send(selectedItems);
 
-                             
-                             alert("The data passed to the other function: " + selectedItems);
                             
                         }
     }

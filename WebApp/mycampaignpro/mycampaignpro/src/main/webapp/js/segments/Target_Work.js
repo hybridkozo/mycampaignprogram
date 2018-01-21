@@ -20,11 +20,10 @@ var targetwork = {
        if (employerSelOpt !== null){
            targetwork.addWorkPosition('positionSelect',employerSelOpt);
        }else{
-           alert('THe all has been selected....');
        }
        document.getElementById('positionButton').style.display='none';
        document.getElementById('positionSelect').style.display='block';
-       alert(employerSelOpt);
+       
     },
    
     getSelectValues: function(select) {
@@ -119,25 +118,19 @@ var targetwork = {
                                     if (xhr.readyState === 4 && xhr.status === 200) {
                                            
                                             data = JSON.parse(xhr.responseText);
-                                            
-                                            alert("The response is:" + data);
                                             flen = data.length;
                                             
                                              if (data!==null){
                                                 for (i=0;i<flen;i++){
                                                     x+= '<option value="' + data[i] + '">' + data[i] + '</option>';
                                                 }
-                                                alert("The x is" + x);
                                                 document.getElementById(positionId).innerHTML = x;
                                              }
                                      }
                                 };
                           
-                                alert(argList);
                                 xhr.send(argList);
 
-                             
-                             alert("The data passed to the other function: " + argList);
                          }
     }
     

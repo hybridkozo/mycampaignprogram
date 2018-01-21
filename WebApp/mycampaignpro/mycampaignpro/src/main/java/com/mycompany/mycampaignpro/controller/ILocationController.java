@@ -12,7 +12,9 @@ import com.mycompany.mycampaignpro.repository.I_Location_Repository;
 import com.mycompany.mycampaignpro.repository.I_User_Repository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -73,6 +75,30 @@ public class ILocationController {
     @RequestMapping("/getDistinctPostalCodes")
     public List<String> getDistinctPostalCodes(){
         return i_Location_Repository.getDistinctPostalCodes();
+    }
+    
+    @RequestMapping(value = "/getDistinctLocationDepartmentViaFilter", method = RequestMethod.POST)
+    public List<String> getDistinctLocationDepartmentViaFilter(@RequestBody List<String> string){
+      
+        return i_Location_Repository.returnDistinctLocationDepartmentViaFilter(string);
+    }
+    
+    @RequestMapping(value = "/getDistinctLocationPrefectureViaFilter", method = RequestMethod.POST)
+    public List<String> getDistinctLocationPrefectureViaFilter(@RequestBody List<String> string){
+      
+        return i_Location_Repository.returnDistinctLocationPrefectureViaFilter(string);
+    }
+    
+    @RequestMapping(value = "/getDistinctLocationCityViaFilter", method = RequestMethod.POST)
+    public List<String> getDistinctLocationCityViaFilter(@RequestBody List<String> string){
+      
+        return i_Location_Repository.returnDistinctLocationCityViaFilter(string);
+    }
+    
+    @RequestMapping(value = "/getDistinctLocationPostalViaFilter", method = RequestMethod.POST)
+    public List<String> getDistinctLocationPostalViaFilter(@RequestBody List<String> string){
+      
+        return i_Location_Repository.returnDistinctLocationPostalViaFilter(string);
     }
     
     
