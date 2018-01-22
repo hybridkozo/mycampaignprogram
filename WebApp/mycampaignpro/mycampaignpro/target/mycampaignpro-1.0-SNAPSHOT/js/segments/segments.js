@@ -453,6 +453,30 @@ var segments = {
                          };
                          xhttp.open("GET", "http://localhost:8080/getDistinctPostalCodes", true);
                             xhttp.send();
+    },
+            
+    getAllSegments: function(){
+        
+             var xhttp = new XMLHttpRequest();
+                         xhttp.onreadystatechange = function() {
+                            var data,x = "",i,flen; 
+                            if (this.readyState === 4 && this.status === 200) {
+                                 data = JSON.parse(this.responseText);
+                               flen = data.length;
+                                
+                                 if (data!==null){
+                                     for (i=0;i<flen;i++){
+                                      x+= "<tr><td>" + data[i].sys_segment_id + "</td><td>" + data[i].sys_segment_name + "</td></tr>";
+                                     }
+                                    
+                                     document.getElementById('demo').innerHTML = x;
+                                 }
+                                 
+                            }
+                         };
+                         xhttp.open("GET", "http://localhost:8080/getAllSegmentsDesc", true);
+                            xhttp.send();   
+                
     }
     
     
@@ -1126,12 +1150,12 @@ var save = {
         
         var js='{"name":';
         if (name.value==='' || name.value === null){
-           js+= null + ', "description": ';
+           js+= '""' + ', "description": ';
         }else{
             js+= '"' + name.value + '"' + ', "description": ';
         }
         if (description.value === '' || description.value === null){
-            js+= null + ', "country": ';
+            js+= '""' + ', "country": ';
         } else{
             js+= '"' + description.value + '"' + ', "country": ';
         }
@@ -1167,8 +1191,25 @@ var save = {
         
         if (xhr.readyState === 4 && xhr.status === 200) {
                                            
-            data = xhr.responseText;
-alert(data);                            
+            data = JSON.parse(xhr.responseText);
+            if(data.status==='success'){
+               
+                 
+                 var successVal = document.getElementById('successMessage'); 
+                
+                 document.getElementById('errorMessage').style.display='none';
+                 successVal.innerHTML = '<strong>Success! </strong> The segment has been saved successfully.';
+                 successVal.style.display='block';
+                 document.getElementById('newSegment').style.display='none';
+                 document.getElementById('segmentList').style.display='block';
+                 
+                
+            }else{
+                var errorVal = document.getElementById('errorMessage');
+                errorVal.style.display='block';
+                document.getElementById('successMessage').style.display='none';
+                errorVal.innerHTML = '<strong>Warning!</strong>' + data.object.description;
+            }                            
             
                                      }
                                 };

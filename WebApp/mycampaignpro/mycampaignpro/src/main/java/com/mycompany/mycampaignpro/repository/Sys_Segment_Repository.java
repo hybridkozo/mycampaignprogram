@@ -21,6 +21,9 @@ public interface Sys_Segment_Repository extends CrudRepository<Sys_Segment, Long
     @Override
     List<Sys_Segment> findAll();
     
+    @Query("SELECT p FROM Sys_Segment p ORDER BY 1 DESC")
+    public List<Sys_Segment> getAllDesc();
+    
      @Query("SELECT p FROM Sys_Segment p WHERE p.sys_segment_name = :name")
     public Sys_Segment findSegmentByName(@Param("name") String name);
    

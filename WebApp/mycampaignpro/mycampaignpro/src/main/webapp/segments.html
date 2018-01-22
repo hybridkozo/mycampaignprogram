@@ -250,6 +250,12 @@
         <li class="breadcrumb-item active">Segments</li>
       </ol>
     </div>
+      <div id="successMessage" class="alert alert-success" style="display:none">
+  
+     </div>
+      <div id="errorMessage" class="alert alert-warning" style="display:none">
+  
+      </div>
      
     <!-- Segment table -->
    
@@ -273,10 +279,7 @@
                 </tr>
               </thead>
               <tbody id="demo">
-                  <tr>
-                      <td>1000000020</td>
-                      <td>Ioannis</td>
-                  </tr>                
+                  <script>segments.getAllSegments();</script>               
               </tbody>
             </table>
                         

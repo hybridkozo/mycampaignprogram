@@ -39,6 +39,11 @@ public class SYSSegmentController {
         return sys_Segment_Repository.findAll();
     }
     
+    @RequestMapping("/getAllSegmentsDesc")
+    public List<Sys_Segment> getAllSegmentDesc(){
+        return sys_Segment_Repository.getAllDesc();
+    }
+    
     @RequestMapping("/getSegmentByName")
     public Sys_Segment getSegmentByNmae(@RequestParam String name){
         return sys_Segment_Repository.findSegmentByName(name);
@@ -48,8 +53,18 @@ public class SYSSegmentController {
     public ResponseObject saveNewSegment(@RequestBody String json) throws JSONException{
         String name,description;
         JSONObject jsonObject = new JSONObject(json);
-        name = (String) jsonObject.get("name");
-        description = (String) jsonObject.get("description");
+        if(jsonObject.get("name")==null){
+          name = null;  
+        }else{
+             name = (String) jsonObject.get("name");
+        }
+        
+        if(jsonObject.get("description")==null){
+          description = null;  
+        }else{
+          description = (String) jsonObject.get("description");
+        }
+        
         if("".equals(name)){
         return new ResponseObject("fail",new errorMessage("Invalid Name","Missing the name",""));
         
