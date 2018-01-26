@@ -27,4 +27,13 @@ public class initier {
             h1.someoneSaidHello();
         }
     }
+    
+    public void sayGoodnight(){
+        System.out.println("Goodnight!");
+        
+        for(HelloListener h2 : listeners){
+            h2.someoneSaidGoodNight();
+        }
+        
+    }
 }

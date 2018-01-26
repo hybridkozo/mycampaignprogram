@@ -15,5 +15,10 @@ public class responder implements HelloListener{
     public void someoneSaidHello() {
         System.out.println("I fine thank you.");
     }
+
+    @Override
+    public void someoneSaidGoodNight() {
+        System.out.println("Goodnight my Friend. See you tommorow!");
+    }
     
 }

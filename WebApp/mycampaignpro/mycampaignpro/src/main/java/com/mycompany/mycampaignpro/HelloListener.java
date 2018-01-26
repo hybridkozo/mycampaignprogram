@@ -11,4 +11,5 @@ package com.mycompany.mycampaignpro;
  */
 public interface HelloListener {
     void someoneSaidHello();
+    void someoneSaidGoodNight();
 }
