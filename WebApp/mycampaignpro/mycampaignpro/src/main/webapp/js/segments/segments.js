@@ -1200,6 +1200,7 @@ var save = {
                  document.getElementById('errorMessage').style.display='none';
                  successVal.innerHTML = '<strong>Success! </strong> The segment has been saved successfully.';
                  successVal.style.display='block';
+                 segments.getAllSegments();
                  document.getElementById('newSegment').style.display='none';
                  document.getElementById('segmentList').style.display='block';
                  

@@ -7,6 +7,7 @@ package com.mycompany.mycampaignpro.controller;
 
 import com.mycompany.mycampaignpro.JobDescriptor;
 import com.mycompany.mycampaignpro.services.impl.EmailService;
+import java.util.Optional;
 import static org.springframework.http.HttpStatus.CREATED;
 
 import org.springframework.http.ResponseEntity;
@@ -30,22 +31,22 @@ import lombok.RequiredArgsConstructor;
 public class EmailResource {
 	private final EmailService emailService;
         
-        @RequestMapping(path = "/groups/{group}/test")
-        public ResponseEntity<JobDescriptor> testControl(@PathVariable String group, RequestBody JobDescriptor descriptor){
-         return new ResponseEntity<>();
-        }
+//        @RequestMapping(path = "/groups/{group}/test")
+//        public ResponseEntity<JobDescriptor> testControl(@PathVariable String group, RequestBody JobDescriptor descriptor){
+//         return new ResponseEntity<>();
+//        }
 
 	@PostMapping(path = "/groups/{group}/jobs")
 	public ResponseEntity<JobDescriptor> createJob(@PathVariable String group, @RequestBody JobDescriptor descriptor) {
 		return new ResponseEntity<>(emailService.createJob(group, descriptor), CREATED);
 	}
 
-//	@GetMapping(path = "/groups/{group}/jobs/{name}")
-//	public ResponseEntity<JobDescriptor> findJob(@PathVariable String group, @PathVariable String name) {
-//		return emailService.findJob(group, name)
-//				.map(ResponseEntity::ok)
-//				.orElse(ResponseEntity.notFound().build());
-//	}
+	@GetMapping(path = "/groups/{group}/jobs/{name}")
+	public Optional<JobDescriptor> findJob(@PathVariable String group, @PathVariable String name) {
+		return emailService.findJob(group, name);
+//                        .map(ResponseEntity::ok)
+//			.orElse(ResponseEntity.notFound().build());
+	}
 
 	@PutMapping(path = "/groups/{group}/jobs/{name}")
 	public ResponseEntity<Void> updateJob(@PathVariable String group, @PathVariable String name, @RequestBody JobDescriptor descriptor) {

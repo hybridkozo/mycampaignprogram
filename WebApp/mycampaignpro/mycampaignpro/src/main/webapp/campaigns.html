@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>SB Admin - Start Bootstrap Template</title>
+  <title>My Campaign - Campaigns</title>
   <!-- Bootstrap core CSS-->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
@@ -21,7 +21,7 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+    <a class="navbar-brand" href="index.html">My Campaign</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -33,16 +33,23 @@
             <span class="nav-link-text">Dashboard</span>
           </a>
         </li>
+        
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
           <a class="nav-link" href="charts.html">
             <i class="fa fa-fw fa-area-chart"></i>
             <span class="nav-link-text">Charts</span>
           </a>
         </li>
+           <li class="nav-item" data-toggle="tooltip" data-placement="right" title="" data-original-title="Charts">
+          <a class="nav-link" href="segments.html">
+            <i class="fa fa-fw fa-pie-chart"></i>
+            <span class="nav-link-text">Segments</span>
+          </a>
+        </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
-          <a class="nav-link" href="tables.html">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Tables</span>
+          <a class="nav-link" href="campaigns.html">
+            <i class="fa fa-fw fa-bullseye"></i>
+            <span class="nav-link-text">Campaigns</span>
           </a>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
@@ -54,67 +61,7 @@
             <li>
               <a href="navbar.html">Navbar</a>
             </li>
-            <li>
-              <a href="cards.html">Cards</a>
-            </li>
           </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-file"></i>
-            <span class="nav-link-text">Example Pages</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="login.html">Login Page</a>
-            </li>
-            <li>
-              <a href="register.html">Registration Page</a>
-            </li>
-            <li>
-              <a href="forgot-password.html">Forgot Password Page</a>
-            </li>
-            <li>
-              <a href="blank.html">Blank Page</a>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Menu Levels</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseMulti">
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a href="#">Second Level Item</a>
-            </li>
-            <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti2">Third Level</a>
-              <ul class="sidenav-third-level collapse" id="collapseMulti2">
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-                <li>
-                  <a href="#">Third Level Item</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
-          <a class="nav-link" href="#">
-            <i class="fa fa-fw fa-link"></i>
-            <span class="nav-link-text">Link</span>
-          </a>
         </li>
       </ul>
       <ul class="navbar-nav sidenav-toggler">
@@ -228,72 +175,54 @@
         <li class="breadcrumb-item">
           <a href="#">Dashboard</a>
         </li>
-        <li class="breadcrumb-item active">Tables</li>
+        <li class="breadcrumb-item active">Campaigns</li>
       </ol>
       <!-- Example DataTables Card-->
       <div class="card mb-3">
         <div class="card-header">
-          <i class="fa fa-table"></i> Data Table Example</div>
+          <i class="fa fa-bullseye"></i> Campaigns List  <div style="float:right;" class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    New Campaign
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/simplenotification.html">Simple Notification</a>
+    <a class="dropdown-item" href="#">Outbound Campaign</a>
+    <a class="dropdown-item" href="#">Trigger Based Campaign</a>
+  </div>
+</div></div>
+         
+      
         <div class="card-body">
           <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
               <thead>
                 <tr>
-                  <th>User ID</th>
+                  <th>Campaign ID</th>
                   <th>Name</th>
-                  <th>Surname</th>
-                  <th>Mobile Number</th>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Email</th>
+                  <th>Status</th>
+                  <th>Options</th>
                 </tr>
               </thead>
               <tfoot>
                 <tr>
-                  <th>User ID</th>
+                  <th>Campaign ID</th>
                   <th>Name</th>
-                  <th>Surname</th>
-                  <th>Mobile Number</th>
-                  <th>Username</th>
-                  <th>Password</th>
-                  <th>Email</th>
+                  <th>Status</th>
+                  <th>Options</th>
                 </tr>
               </tfoot>
-              <tbody id="demo">
-              
-                <script>
-                        
-                        var xhttp = new XMLHttpRequest();
-                         xhttp.onreadystatechange = function() {
-                            var data,x = "",i; 
-                            if (this.readyState == 4 && this.status == 200) {
-                                 data = JSON.parse(this.responseText);
-                               
-                                 
-                                 //if (data.status==="Done"){
-                                     for (i in data){
-                                      x+= "<tr>" + "<td>" + data[i].i_user_id + "</td>" +
-                                              "<td>" + data[i].i_first_name + "</td>" +
-                                              "<td>" + data[i].i_last_name + "</td>" +
-                                              "<td>" + data[i].i_mobile_number + "</td>" +
-                                              "<td>" + data[i].i_username + "</td>" +
-                                              "<td>" + data[i].i_password + "</td>" +
-                                              "<td>" + data[i].i_email_address + "</td>"+ "</tr>";
-                                     }
-                                     document.getElementById("demo").innerHTML = x;
-                              //   }
-                                 
-                            }
-                         };
-                         xhttp.open("GET", "http://localhost:8080/getAllUsers", true);
-                            xhttp.send();
-                    
-                </script>
+              <tbody id="campaignsTable">
+                    <tr>
+                        <td>01</td>
+                        <td>Campaign 1</td>
+                        <td>Draft</td>
+                        <td><button type="button" class="btn btn-outline-dark">Edit</button><button type="button" class="btn btn-outline-primary">Activate</button><button type="button" class="btn btn-outline-dark">Details</button></td>
+                    </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        
       </div>
     </div>
     <!-- /.container-fluid-->

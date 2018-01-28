@@ -25,8 +25,8 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class EmailJob implements Job {
-	@Autowired
-	private JavaMailSender mailSender;
+//	@Autowired
+//	private JavaMailSender mailSender;
 
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
