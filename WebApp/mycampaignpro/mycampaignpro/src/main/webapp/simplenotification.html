@@ -14,6 +14,8 @@
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  
+ 
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
   <script src="js/campaigns/campaigns.js"></script>
@@ -211,10 +213,23 @@
            </select>
               </div>
           </div>
+          
+          <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-clock-o"></i> Execution Time </div>        
+      </div>
+         <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-4">
+        
+     <input type="datetime-local" class="form-control" name="bdaytime" id="time">
+        
+    </div>
+         </div>
+          
  
   <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" class="btn btn-default">Submit</button>
+        <button type="button" class="btn btn-default" onclick="alert(document.getElementById('time').value);">Submit</button>
     </div>
   </div>
 </form>
@@ -263,6 +278,8 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+    
+
   </div>
 </body>
 
