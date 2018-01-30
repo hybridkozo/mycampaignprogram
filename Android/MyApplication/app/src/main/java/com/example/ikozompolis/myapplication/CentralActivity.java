@@ -22,6 +22,7 @@ import com.example.ikozompolis.myapplication.services.GPSService;
 import com.facebook.AccessToken;
 import com.facebook.Profile;
 import com.facebook.login.LoginManager;
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,7 +37,7 @@ import static com.example.ikozompolis.myapplication.Usefullmethods.configuration
 public class CentralActivity extends AppCompatActivity {
 
     public static TextView name,surname,email,mobile,location;
-    private Button getLocation,startService,stopService,logout;
+    private Button getLocation,startService,stopService,logout,token;
     SharedPreferences sharedPreferences,sharedPreferences2;
     facebookFunctions fbFunctions;
     AccessToken accessToken;
@@ -64,6 +65,7 @@ public class CentralActivity extends AppCompatActivity {
         startService = (Button) findViewById(R.id.startService);
         stopService = (Button) findViewById(R.id.stopService);
         logout = (Button) findViewById(R.id.logout);
+        token = (Button) findViewById(R.id.token);
         getLocation = (Button) findViewById(R.id.edit);
         location.setText(loginWay);
         if(sharedPreferences.getString("loginWay",null)=="FB"){
@@ -211,7 +213,17 @@ public class CentralActivity extends AppCompatActivity {
         });
 
 
+        token.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.v("FirebaseToken",FirebaseInstanceId.getInstance().getToken());
+            }
+        });
+
+
     }
+
+
 
 
     public void startService(){
