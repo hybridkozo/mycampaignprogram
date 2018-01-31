@@ -1,0 +1,10 @@
+## YAML Template.
+---
+mail:
+    host: smtp.gmail.com
+    port: 587
+    test-connection: true
+    username: g.kozompolis@gmail.com    
+    password: giannis2669
+    properties:
+      mail.smtp.starttls.enable: true
