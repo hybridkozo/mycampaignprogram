@@ -68,10 +68,7 @@
         </receiver>
         <receiver android:name=".Receiver.JobReceiver"></receiver>
 
-        <service
-            android:name=".Firebase.MyFirebaseMessagingService"
-            android:enabled="true"
-            android:exported="true"></service>
+
     </application>
 
 </manifest>
