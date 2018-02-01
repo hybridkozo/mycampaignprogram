@@ -33,3 +33,12 @@ var simplenot = {
 };
 
 
+var data = {
+    
+    onSave : function(){
+        
+    }
+    
+};
+
+
