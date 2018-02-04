@@ -195,7 +195,7 @@
           
      <label class="control-label col-sm-2" for="name">Name:</label>
      <div class="col-sm-4">
-         <input type="text" class="form-control" id="campaignName" pattern="[^\s]+" placeholder="Enter Name" required>
+         <input type="text" class="form-control" id="campaignName" placeholder="Enter Name" required disabled>
          <div id="errorMessageName" style="display:none; color:red;">
         * Name is required
       </div>
@@ -204,7 +204,7 @@
   <div class="form-group">
     <label class="control-label col-sm-2" for="description">Description:</label>
     <div class="col-sm-4"> 
-        <input type="text" class="form-control" id="campaignDescription" placeholder="Enter Description" required>
+        <input type="text" class="form-control" id="campaignDescription" placeholder="Enter Description" required disabled>
         <div id="errorMessageDescription" style="display:none; color:red;">
         * Description is required
       </div>
@@ -218,7 +218,7 @@
           <div class="form-group">
               <div class="col-sm-4"> 
               
-           <select class="form-control" id="selectSegment">
+           <select class="form-control" id="selectSegment" disabled>
                <script>simplenot.getAllSegments();</script>
              
            </select>
@@ -232,7 +232,7 @@
          <div class="form-group"> 
     <div class="col-sm-offset-2 col-sm-4">
         
-     <input type="datetime-local" class="form-control" name="bdaytime" id="notificationDatetime">
+     <input type="datetime-local" class="form-control" name="bdaytime" id="notificationDatetime" disabled>
      <div id="errorMessageDatetime" style="display:none; color:red;">
         * Datetime is required
       </div>
@@ -247,7 +247,7 @@
           <div class="form-group">
      <label class="control-label col-sm-2" for="Title">Title:</label>
      <div class="col-sm-4">
-      <input type="text" class="form-control" id="notificationTitle" placeholder="Enter Title">
+      <input type="text" class="form-control" id="notificationTitle" placeholder="Enter Title" disabled>
       <div id="errorMessageNotificationTitle" style="display:none; color:red;">
         * Notification title is required
       </div>
@@ -257,7 +257,7 @@
               <div class="form-group">
      <label class="control-label col-sm-2" for="Body">Body:</label>
      <div class="col-sm-4">
-         <textarea class="form-control" id="notificationBody" placeholder="Enter Body"></textarea>
+         <textarea class="form-control" id="notificationBody" placeholder="Enter Body" disabled></textarea>
          <div id="errorMessageNotificationBody" style="display:none; color:red;">
         * Notification body is required
       </div>
@@ -268,8 +268,8 @@
   <div class="form-group" style="clear: both;">  
                                 
                               <div style="float: right;margin: 10px;" class="col-sm-offset-2 col-sm-2">
-                                <button type="button" class="btn btn-outline-dark" onclick="window.location.replace('/campaigns.html');">Cancel</button>  
-                                <button type="button" class="btn btn-outline-primary" onclick="save.onSave()">Save</button>
+                                <button type="button" class="btn btn-outline-dark" onclick="window.location.replace('/campaigns.html');">Back</button>  
+                                
                               </div>
                                 
                             </div>
@@ -319,10 +319,12 @@
     <script src="js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="js/sb-admin-datatables.min.js"></script>
+    <script>campaign.writeDetails();</script>
     
 
   </div>
 </body>
 
 </html>
+
 

@@ -16,6 +16,7 @@
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+  <script src="js/campaigns/campaigns.js"></script>
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -200,6 +201,7 @@
                   <th>Campaign ID</th>
                   <th>Name</th>
                   <th>Status</th>
+                  <th>Type</th>
                   <th>Options</th>
                 </tr>
               </thead>
@@ -208,16 +210,12 @@
                   <th>Campaign ID</th>
                   <th>Name</th>
                   <th>Status</th>
+                  <th>Type</th>
                   <th>Options</th>
                 </tr>
               </tfoot>
               <tbody id="campaignsTable">
-                    <tr>
-                        <td>01</td>
-                        <td>Campaign 1</td>
-                        <td>Draft</td>
-                        <td><button type="button" class="btn btn-outline-dark">Edit</button><button type="button" class="btn btn-outline-primary">Activate</button><button type="button" class="btn btn-outline-dark">Details</button></td>
-                    </tr>
+              <script>campaign.getAllCampaigns();</script> 
               </tbody>
             </table>
           </div>

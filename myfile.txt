@@ -1,13 +1,22 @@
-hello world
-
-my name is John kozo
 
 --commands to import the database on work PC 
 psql program postgres
 \i 'C:/Users/ikozompolis/Desktop/git_push/mycampaignprogram/DataBase/program.sql'
 
---commands to export the database
+--commands to export the database on work pc
 pg_dump -U postgres program >>C:\Users\ikozompolis\Desktop\git_push\mycampaignprogram\DataBase\program.sql
+
+
+
+--commands to import the database on home PC 
+
+psql program postgres
+
+ \i 'C:/Users/user/Desktop/ThesisProject/mycampaignprogram/DataBase/
+
+
+--commands to export the database on work pc
+pg_dump -U postgres program >>C:\Users\user\Desktop\ThesisProject\mycampaignprogram\DataBase\program.sql
 
 
 

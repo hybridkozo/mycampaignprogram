@@ -38,12 +38,7 @@ public class Sys_Campaign implements Serializable {
     @Basic(optional = false)
     @Column(name = "sys_campaign_id")
     private Long sys_campaign_id;
-    @Column(name = "sys_creation_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date sys_creation_date;
-    @Column(name = "sys_last_update_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date sys_last_update_date;
+
     @Size(max = 2147483647)
     @Column(name = "sys_campaign_type")
     private String sys_campaign_type;
@@ -59,12 +54,29 @@ public class Sys_Campaign implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "sys_json_data")
     private String sys_json_data;
+    @Column(name = "sys_segment_id")
+    private Long sys_segment_id;
     @JoinColumn(name = "sys_flow_node_id", referencedColumnName = "sys_flow_node_id")
     @ManyToOne
     private Sys_Flow_Node sys_flow_node_id;
 
     public Sys_Campaign() {
     }
+
+    public Sys_Campaign(String sys_campaign_type, String sys_campaign_status, String sys_campaign_name, String sys_campaign_description, String sys_json_data, Long sys_segment_id) {
+        this.sys_campaign_type = sys_campaign_type;
+        this.sys_campaign_status = sys_campaign_status;
+        this.sys_campaign_name = sys_campaign_name;
+        this.sys_campaign_description = sys_campaign_description;
+        this.sys_json_data = sys_json_data;
+        this.sys_segment_id = sys_segment_id;
+    }
+
+    
+
+   
+    
+    
 
     public Long getSys_campaign_id() {
         return sys_campaign_id;
@@ -74,21 +86,6 @@ public class Sys_Campaign implements Serializable {
         this.sys_campaign_id = sys_campaign_id;
     }
 
-    public Date getSys_creation_date() {
-        return sys_creation_date;
-    }
-
-    public void setSys_creation_date(Date sys_creation_date) {
-        this.sys_creation_date = sys_creation_date;
-    }
-
-    public Date getSys_last_update_date() {
-        return sys_last_update_date;
-    }
-
-    public void setSys_last_update_date(Date sys_last_update_date) {
-        this.sys_last_update_date = sys_last_update_date;
-    }
 
     public String getSys_campaign_type() {
         return sys_campaign_type;
