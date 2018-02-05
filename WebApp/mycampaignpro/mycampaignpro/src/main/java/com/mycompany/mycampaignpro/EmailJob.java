@@ -25,8 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class EmailJob implements Job {
-//	@Autowired
-//	private JavaMailSender mailSender;
+
 
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
@@ -46,23 +45,6 @@ public class EmailJob implements Job {
                 
                 System.out.println(subject);
 		
-//		MimeMessage message = mailSender.createMimeMessage();
-//
-//		try {
-//			MimeMessageHelper helper = new MimeMessageHelper(message, false);
-//			for(String receipient : to) {
-//				helper.setFrom("g.kozompolis@gmail.com", "Ioannis Kozompolis");
-//				helper.setTo(receipient);
-//				helper.setSubject(subject);
-//				helper.setText(messageBody);
-////				if(!isEmpty(cc))
-////					helper.setCc(cc.stream().toArray(String[]::new));
-////				if(!isEmpty(bcc))
-////					helper.setBcc(bcc.stream().toArray(String[]::new));
-//				mailSender.send(message);
-//			}
-//		} catch (MessagingException | UnsupportedEncodingException e) {
-//			log.error("An error occurred: {}", e.getLocalizedMessage());
-//		}
+
 	}
 }
