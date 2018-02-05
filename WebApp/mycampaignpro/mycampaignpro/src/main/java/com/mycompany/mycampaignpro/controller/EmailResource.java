@@ -31,10 +31,6 @@ import lombok.RequiredArgsConstructor;
 public class EmailResource {
 	private final EmailService emailService;
         
-//        @RequestMapping(path = "/groups/{group}/test")
-//        public ResponseEntity<JobDescriptor> testControl(@PathVariable String group, RequestBody JobDescriptor descriptor){
-//         return new ResponseEntity<>();
-//        }
 
 	@PostMapping(path = "/groups/{group}/jobs")
 	public ResponseEntity<JobDescriptor> createJob(@PathVariable String group, @RequestBody JobDescriptor descriptor) {

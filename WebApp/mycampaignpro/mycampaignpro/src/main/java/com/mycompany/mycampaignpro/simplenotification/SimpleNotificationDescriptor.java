@@ -88,7 +88,7 @@ public class SimpleNotificationDescriptor {
 		// @formatter:off
 		JobDataMap jobDataMap = new JobDataMap(getData());
 		jobDataMap.put("id", id);
-		return newJob(EmailJob.class)
+		return newJob(SimpleNotificationJob.class)
                 .withIdentity(getName(), getGroup())
                 .usingJobData(jobDataMap)
                 .build();

@@ -35,7 +35,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class SimpeNotificationService {
+public class SimpleNotificationService {
     
     private final Scheduler scheduler;
 	
@@ -71,16 +71,13 @@ public class SimpeNotificationService {
 		return Optional.empty();
 	}
 	
-	public void updateJob(String group, String name, JobDescriptor descriptor) {
+	public void updateJob(String group, String name, SimpleNotificationDescriptor descriptor) {
 		try {
 			JobDetail oldJobDetail = scheduler.getJobDetail(jobKey(name, group));
 			if(Objects.nonNull(oldJobDetail)) {
 				JobDataMap jobDataMap = oldJobDetail.getJobDataMap();
-				jobDataMap.put("subject", descriptor.getSubject());
-				jobDataMap.put("messageBody", descriptor.getMessageBody());
-				jobDataMap.put("to", descriptor.getTo());
-				jobDataMap.put("cc", descriptor.getCc());
-				jobDataMap.put("bcc", descriptor.getBcc());
+				jobDataMap.put("id", descriptor.getId());
+				
 				JobBuilder jb = oldJobDetail.getJobBuilder();
 				JobDetail newJobDetail = jb.usingJobData(jobDataMap).storeDurably().build();
 				scheduler.addJob(newJobDetail, true);
