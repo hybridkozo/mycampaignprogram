@@ -72,6 +72,22 @@ public class Sys_Campaign implements Serializable {
         this.sys_segment_id = sys_segment_id;
     }
 
+    public Long getSys_segment_id() {
+        return sys_segment_id;
+    }
+
+    public void setSys_segment_id(Long sys_segment_id) {
+        this.sys_segment_id = sys_segment_id;
+    }
+
+    public Sys_Flow_Node getSys_flow_node_id() {
+        return sys_flow_node_id;
+    }
+
+    public void setSys_flow_node_id(Sys_Flow_Node sys_flow_node_id) {
+        this.sys_flow_node_id = sys_flow_node_id;
+    }
+
     
 
    

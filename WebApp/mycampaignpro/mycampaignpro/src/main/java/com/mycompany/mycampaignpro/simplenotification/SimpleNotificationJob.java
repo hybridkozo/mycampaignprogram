@@ -6,7 +6,11 @@
 package com.mycompany.mycampaignpro.simplenotification;
 
 import com.mycompany.mycampaignpro.model.Sys_Campaign;
+import com.mycompany.mycampaignpro.model.Sys_Json_Filter;
+import com.mycompany.mycampaignpro.model.Sys_Segment;
 import com.mycompany.mycampaignpro.repository.Sys_Campaign_Repository;
+import com.mycompany.mycampaignpro.repository.Sys_Json_Filter_Repository;
+import com.mycompany.mycampaignpro.repository.Sys_Segment_Repository;
 import static java.lang.Math.log;
 import static java.rmi.server.LogStream.log;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +29,10 @@ public class SimpleNotificationJob implements Job{
     
     @Autowired
     Sys_Campaign_Repository sys_Campaign_Repository;
+    @Autowired
+    Sys_Segment_Repository sys_Segment_Repository;
+    @Autowired
+    Sys_Json_Filter_Repository sys_Json_Filter_Repository;
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
@@ -33,8 +41,10 @@ public class SimpleNotificationJob implements Job{
 		JobDataMap map = context.getMergedJobDataMap();
 		Long id = map.getLong("id");
                 Sys_Campaign sys_campaign = sys_Campaign_Repository.findOne(id);
+                Sys_Segment sys_Segment = sys_Segment_Repository.findOne(sys_campaign.getSys_segment_id());
+                Sys_Json_Filter sys_Json_Filter = sys_Json_Filter_Repository.findOne(sys_Segment.getSys_json_id());
                 
-                System.out.println("The campaign data is: " + sys_campaign.getSys_campaign_name() + "\n" + sys_campaign.getSys_campaign_description());
+                System.out.println("The Json Filter is: " + sys_Json_Filter.getSys_json());
                 
     }
     

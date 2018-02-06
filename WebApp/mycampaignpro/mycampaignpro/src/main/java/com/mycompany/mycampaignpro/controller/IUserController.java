@@ -10,7 +10,6 @@ import com.mycompany.mycampaignpro.model.responseObject.ResponseObject;
 import com.mycompany.mycampaignpro.repository.I_User_Repository;
 import com.mycompany.mycampaignpro.services.impl.UserServiceImpl;
 import java.util.List;
-import javax.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +28,9 @@ public class IUserController {
     
     @Autowired
     UserServiceImpl userServiceImpl;
+    
+    
+  
     
     
     @RequestMapping("/getAllUsers")
