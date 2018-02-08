@@ -80,4 +80,13 @@ public class IUserController {
       return new ResponseObject("success",i_User);
     }
     
+    @RequestMapping("/setFirebaseDeviceId")
+    public ResponseObject setFirebaseDeviceId(@RequestParam String username, String firebaseId){
+        I_User i_User=iUserRepository.find(username);
+        i_User.setI_firebase_device_id(firebaseId);       
+        iUserRepository.save(i_User);
+        
+        return new ResponseObject("success",i_User);     
+    }
+    
 }

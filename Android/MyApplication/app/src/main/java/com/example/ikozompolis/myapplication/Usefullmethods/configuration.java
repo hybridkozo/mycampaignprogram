@@ -22,6 +22,8 @@ public class configuration {
     public static String URL_SAVE_FB_MUSIC = localURL + "saveFbMusic";
     public static String URL_SAVE_FB_INTEREST_PAGE = localURL + "saveInterestFbPage";
 
+    public static String URL_UPDATE_FIREBASE_DEVICE_ID = localURL + "setFirebaseDeviceId";
+
     public static int methodGET = Request.Method.GET;
     public static int methodPOST = Request.Method.POST;
 }

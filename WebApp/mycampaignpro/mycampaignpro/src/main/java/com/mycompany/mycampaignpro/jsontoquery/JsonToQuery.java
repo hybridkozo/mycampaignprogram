@@ -15,8 +15,7 @@ import org.json.JSONObject;
  * @author ikozompolis
  */
 public class JsonToQuery {
-    
-    
+       
     private String country, department, prefecture, city, postal, employer, position, school, degree, year, books, teams, events, music, pages;
     private String query;
     

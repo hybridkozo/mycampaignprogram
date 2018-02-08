@@ -53,6 +53,8 @@ public class I_User implements Serializable{
     private String i_email_address;
     @Column(name="i_register_type")
     private String i_register_type;
+    @Column(name="i_firebase_device_id")
+    private String i_firebase_device_id;
     
     //@OneToMany( targetEntity=I_Location.class )
     @OneToMany(targetEntity=I_Location.class)
@@ -147,6 +149,16 @@ public class I_User implements Serializable{
     public String getI_register_type(){
         return i_register_type;
     }
+
+    public String getI_firebase_device_id() {
+        return i_firebase_device_id;
+    }
+
+    public void setI_firebase_device_id(String i_firebase_device_id) {
+        this.i_firebase_device_id = i_firebase_device_id;
+    }
+    
+    
     
     
     

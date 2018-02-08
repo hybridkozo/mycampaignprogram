@@ -35,9 +35,59 @@ var campaign = {
                 
     },
     activate: function(id){
-         var xhttp = new XMLHttpRequest();
+        
+        var xhttp = new XMLHttpRequest();
                          xhttp.onreadystatechange = function() {
-                            var data,x = "",i,flen; 
+                            var campaignTime,campaignTimeMili, sysdate, sysdateMili;
+                            if (this.readyState === 4 && this.status === 200) {
+                               campaignTime = new Date(this.responseText);
+                               alert("Hours:" + campaignTime.getHours() + "Minutes:" + campaignTime.getMinutes() + "Months:" + campaignTime.getMonth() + "Days:" + campaignTime.getDay() + "Year:" + campaignTime.getYear());
+                               campaignTimeMili = Date.parse(campaignTime);
+                               campaignTimeMili += 100000;
+                               sysdate = new Date();
+                               sysdateMili = Date.parse(sysdate);
+                               if(sysdateMili > campaignTimeMili){
+                                   document.getElementById('errorMessage').innerHTML = '<strong>Warning!</strong>' + 'Invalid excecution date';
+                                   document.getElementById('errorMessage').style.display = 'block';
+                               }else{
+                                   
+                                   campaign.triggerSimpleNotification(campaignTime,id);
+                               }
+                               
+                            }
+                         };
+                         xhttp.open("GET", "http://localhost:8080/getStartDateOfCampaign?id=" + id, true);
+                            xhttp.send(); 
+        
+       
+         
+    },
+    triggerSimpleNotification: function(date,id){
+        var json = '{ "name": "Simple Notification ' + id + '", "id" : ' + id + ', "triggers":[ { "name": "Simple Notification ' + id + '", "group": "simplenotification", "cron": "0 ' + date.getMinutes() + ' ' + date.getHours() + ' ' + date.getDay() + ' ' + date.getMonth() + ' ? ' + date.getYear() + '"} ]}';
+        
+        var data;
+        var xhr = new XMLHttpRequest();
+        var url = "http://localhost:8080/simple/notification/api/v1.0/groups/simplenotification/jobs";
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-type", "application/json"); 
+        xhr.onreadystatechange = function () {
+        
+        if (xhr.readyState === 4 && xhr.status === 200) {
+                                           
+            campaign.changeActivateStatusOnDatabase(id);
+            
+                                     }
+                                };
+                          
+                                
+                                xhr.send(json);
+        
+        
+    },
+    changeActivateStatusOnDatabase: function(id){
+        var xhttp = new XMLHttpRequest();
+                         xhttp.onreadystatechange = function() {
+                            
                             if (this.readyState === 4 && this.status === 200) {
                              
                                window.location.replace("/campaigns.html");   

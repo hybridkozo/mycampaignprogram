@@ -75,5 +75,12 @@ public class SYSCampaignController {
         
     }
     
+    @RequestMapping("/getStartDateOfCampaign")
+    public String getStartDateOfCampaign(@RequestParam Long id) throws JSONException{
+        Sys_Campaign sys_Campaign = sys_Campaign_Repository.findOne(id);
+        JSONObject jsonObject = new JSONObject(sys_Campaign.getSys_json_data());
+        return jsonObject.getString("datetime");
+    }
+    
 }
     
