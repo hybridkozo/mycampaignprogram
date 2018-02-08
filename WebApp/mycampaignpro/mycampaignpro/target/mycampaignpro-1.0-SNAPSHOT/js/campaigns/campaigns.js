@@ -41,7 +41,6 @@ var campaign = {
                             var campaignTime,campaignTimeMili, sysdate, sysdateMili;
                             if (this.readyState === 4 && this.status === 200) {
                                campaignTime = new Date(this.responseText);
-                               alert("Hours:" + campaignTime.getHours() + "Minutes:" + campaignTime.getMinutes() + "Months:" + campaignTime.getMonth() + "Days:" + campaignTime.getDay() + "Year:" + campaignTime.getYear());
                                campaignTimeMili = Date.parse(campaignTime);
                                campaignTimeMili += 100000;
                                sysdate = new Date();
@@ -63,9 +62,10 @@ var campaign = {
          
     },
     triggerSimpleNotification: function(date,id){
-        var json = '{ "name": "Simple Notification ' + id + '", "id" : ' + id + ', "triggers":[ { "name": "Simple Notification ' + id + '", "group": "simplenotification", "cron": "0 ' + date.getMinutes() + ' ' + date.getHours() + ' ' + date.getDay() + ' ' + date.getMonth() + ' ? ' + date.getYear() + '"} ]}';
-        
-        var data;
+        var month = parseInt(date.getMonth());
+                               month++;
+        var json = '{ "name": "Simple Notification ' + id + '", "id" : ' + id + ', "triggers":[ { "name": "Simple Notification ' + id + '", "group": "simplenotification", "cron": "0 ' + date.getMinutes() + ' ' + date.getHours() + ' ' + date.getDate() + ' ' + month + ' ? ' + date.getFullYear() + '"} ]}';
+        alert(json);
         var xhr = new XMLHttpRequest();
         var url = "http://localhost:8080/simple/notification/api/v1.0/groups/simplenotification/jobs";
         xhr.open("POST", url, true);
@@ -73,6 +73,8 @@ var campaign = {
         xhr.onreadystatechange = function () {
         
         if (xhr.readyState === 4 && xhr.status === 200) {
+            
+            alert("Campaign activated!!!");
                                            
             campaign.changeActivateStatusOnDatabase(id);
             
@@ -81,6 +83,7 @@ var campaign = {
                           
                                 
                                 xhr.send(json);
+                                campaign.changeActivateStatusOnDatabase(id);
         
         
     },
@@ -89,7 +92,7 @@ var campaign = {
                          xhttp.onreadystatechange = function() {
                             
                             if (this.readyState === 4 && this.status === 200) {
-                             
+                             alert("Campaign avtivated");
                                window.location.replace("/campaigns.html");   
                             }
                          };
