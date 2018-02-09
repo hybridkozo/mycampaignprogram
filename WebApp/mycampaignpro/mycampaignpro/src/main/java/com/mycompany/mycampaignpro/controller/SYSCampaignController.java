@@ -61,6 +61,36 @@ public class SYSCampaignController {
         
     }
     
+    @RequestMapping("/saveEditCampaign")
+    public ResponseObject saveEditCampaign(@RequestBody String json) throws JSONException{
+        String name,description,datetime,segmentId,title,body,id;
+        JSONObject jsonObject = new JSONObject(json);
+        name = (String) jsonObject.get("campaignName");  
+        description = (String) jsonObject.get("campaignDescription");
+        segmentId = (String) jsonObject.get("segmentId");
+        datetime = (String) jsonObject.get("datetime");
+        title = (String) jsonObject.get("notificationTitle");
+        body = (String) jsonObject.get("notificationBody");
+        id = (String) jsonObject.get("campaignId");
+       
+        if(sys_Campaign_Repository.getCampagnByNameExceptThis(name, Long.valueOf(id))!= null){
+            return new ResponseObject("fail",new errorMessage("Invalid Message","The Campaign name exists",""));
+       }else{
+            Sys_Campaign sys_Campaign = sys_Campaign_Repository.findOne(Long.valueOf(id));
+            sys_Campaign.setSys_campaign_type("SIMPLE_NOTIFICATION");
+            sys_Campaign.setSys_campaign_status("INACTIVE");
+            sys_Campaign.setSys_campaign_name(name);
+            sys_Campaign.setSys_campaign_description(description);
+            sys_Campaign.setSys_json_data(json);
+           
+            sys_Campaign.setSys_segment_id(Long.valueOf(segmentId));
+            
+            sys_Campaign_Repository.save(sys_Campaign);
+            return new ResponseObject("success",sys_Campaign);
+        }
+        
+    }
+    
     @RequestMapping("/updateCampaignStatus")
     public void updateCampaignStatus(@RequestParam Long id){
        Sys_Campaign sys_Campaign = sys_Campaign_Repository.findOne(id);

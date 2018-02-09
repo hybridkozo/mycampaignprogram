@@ -25,6 +25,10 @@ public interface Sys_Campaign_Repository extends CrudRepository<Sys_Campaign, Lo
   @Query("SELECT p FROM Sys_Campaign p WHERE LOWER(p.sys_campaign_name) = LOWER(:name)")
   Sys_Campaign getCampagnByName(@Param("name") String name);
   
+  
+  @Query("SELECT p FROM Sys_Campaign p WHERE LOWER(p.sys_campaign_name) = LOWER(:name) and p.sys_campaign_id !=:id ")
+  Sys_Campaign getCampagnByNameExceptThis(@Param("name") String name, @Param("id") Long id);
+  
   @Query("SELECT p.sys_campaign_id, p.sys_campaign_name, p.sys_campaign_status, p.sys_campaign_type FROM Sys_Campaign p")
   List<Sys_Campaign> findAllCampaigns();
   
