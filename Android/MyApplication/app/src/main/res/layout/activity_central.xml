@@ -81,12 +81,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log Out"
-        android:layout_marginBottom="19dp"
+        android:layout_marginBottom="21dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/location"
-        android:layout_alignEnd="@+id/location"
-        android:layout_marginRight="10dp"
-        android:layout_marginEnd="10dp" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:id="@+id/location"
@@ -104,6 +102,6 @@
         android:layout_alignBottom="@+id/logout"
         android:layout_toLeftOf="@+id/location"
         android:layout_toStartOf="@+id/location"
-        android:text="Button" />
+        android:text="FirebaseId" />
 
 </RelativeLayout>

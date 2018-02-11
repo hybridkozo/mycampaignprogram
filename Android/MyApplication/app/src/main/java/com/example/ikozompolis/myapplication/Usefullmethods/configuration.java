@@ -8,7 +8,7 @@ import com.android.volley.Request;
 
 public class configuration {
 
-    public static final String ip_v4="192.168.1.5";
+    public static final String ip_v4="192.168.1.6";
     public static final String localURL = "http://" + ip_v4 + ":8080/";
     public static final String URL_USERNAME="http://" + ip_v4 +":8080/getByUsername?username=";
     public static String URL_VALIDATE_ACCOUNT = "http://" + ip_v4 +":8080/validateAccount";

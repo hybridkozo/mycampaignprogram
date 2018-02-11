@@ -17,12 +17,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.ikozompolis.myapplication.FacebookPackage.facebookFunctions;
+import com.example.ikozompolis.myapplication.Firebase.MyFirebaseInstanceIDService;
 import com.example.ikozompolis.myapplication.Receiver.AlarmBroadcastReceiver;
 import com.example.ikozompolis.myapplication.services.GPSService;
 import com.facebook.AccessToken;
 import com.facebook.Profile;
 import com.facebook.login.LoginManager;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.FirebaseInstanceIdService;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -32,6 +34,7 @@ import java.util.List;
 import java.util.Locale;
 
 import static com.example.ikozompolis.myapplication.MainActivity.alarmBroadcastReceiver;
+import static com.example.ikozompolis.myapplication.Usefullmethods.configuration.URL_UPDATE_FIREBASE_DEVICE_ID;
 import static com.example.ikozompolis.myapplication.Usefullmethods.configuration.URL_USERNAME;
 
 public class CentralActivity extends AppCompatActivity {
@@ -78,6 +81,9 @@ public class CentralActivity extends AppCompatActivity {
             fbFunctions.saveFbLastPageLikes(accessToken,getApplicationContext());
             fbFunctions.saveFbEvents(accessToken,getApplicationContext());
         }
+
+
+        sendRegistrationToServer(FirebaseInstanceId.getInstance().getToken());
 
         /*
         * Define the request that will return the data of the user e.g. name, surname, email, mobile...
@@ -232,6 +238,39 @@ public class CentralActivity extends AppCompatActivity {
 
     public void stopService(){
         stopService(new Intent(getBaseContext(), GPSService.class));
+    }
+
+
+    private void sendRegistrationToServer(String token) {
+        sharedPreferences = getSharedPreferences(MainActivity.MyPREFERENCES, Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString("username",null);
+        String URL = URL_UPDATE_FIREBASE_DEVICE_ID + "?username=" + username + "&firebaseId=" +token;
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+
+
+                try {
+                    if (response.getString("status").equals("success")){
+                        Log.i("FIREBASE","The Firebase Device Id has been updated successfully...");
+
+                    }else {
+                        Log.e("FIREBASE","The Firebase Device Id has not updated successfully please check the Server side APP...");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }}, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }
+        );
+
+        Mysingleton.getInstance(CentralActivity.this).addToRequestque(jsonObjectRequest);
     }
 
 }
