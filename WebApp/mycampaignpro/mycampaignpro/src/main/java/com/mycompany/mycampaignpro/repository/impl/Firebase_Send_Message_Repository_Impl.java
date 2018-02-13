@@ -96,7 +96,7 @@ public class Firebase_Send_Message_Repository_Impl implements Firebase_Send_Mess
     public byte[] getPostData(String registrationId, String title, String body) throws JSONException {
       
         
-        String jsonrequest = "{\"message\":{\"token\" : \"" + registrationId + "\",\"notification\" : {\"body\" : \"" + body + "\",\"title\" : \"" + title + "\",\"click_action\":\"OPEN_ACTIVITY_1\" }}}";
+        String jsonrequest = "{\"message\":{\"token\" : \"" + registrationId + "\",\"notification\" : {\"body\" : \"" + body + "\",\"title\" : \"" + title + "\"}}}";
         
         
  
