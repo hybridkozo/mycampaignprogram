@@ -63,12 +63,12 @@ public class facebookFunctions {
                                 JSONObject pos=new JSONObject();
                                 for (int i = 0; i < jsonArray.length(); i++) {
                                     JSONObject obj = jsonArray.getJSONObject(i);
-                                    if(object.has("employer")) {
+                                    if(obj.has("employer")) {
                                         empl = obj.getJSONObject("employer");
                                     }else{
                                          empl.put("name", "");
                                     }
-                                    if(object.has("position")) {
+                                    if(obj.has("position")) {
                                         pos = obj.getJSONObject("position");
                                     }
                                     else{

@@ -27,32 +27,6 @@ var segments = {
         document.getElementById('newSegment').style.display = 'block';
              
  },
- 
- testFunction: function(){
-     
-     var i;
-        var itemList = [];
-        var data;
-        var rootList = document.getElementById("thisid_chosen").getElementsByClassName("result-selected");
-         
-        vlen = rootList.length;
-     
-        if(vlen >0 ){
-             for (i=0;i<vlen;i++){
-                 alert(rootList[i].innerHTML);
-                 itemList.push(rootList[i].innerHTML);
-             }
-            
-             data = '["' + itemList.join('", "') + '"]';
-             segments.addWorkPosition("positionId",data);
-              
-              }else{
-                  data=null;
-                  segments.addWorkPosition("positionId",data);
-              }
-     
- },
- 
  findElement: function(){
         var i;
         var itemList = [];
