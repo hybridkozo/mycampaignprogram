@@ -1,7 +1,6 @@
 package com.example.ikozompolis.myapplication;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,7 +18,6 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.example.ikozompolis.myapplication.Firebase.MyFirebaseInstanceIDService;
 import com.example.ikozompolis.myapplication.Receiver.AlarmBroadcastReceiver;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -31,8 +29,6 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import android.support.v4.app.ActivityCompat;
@@ -50,10 +46,10 @@ public class MainActivity extends AppCompatActivity {
     private Button login;
     private EditText username, password;
     private TextView register;
-    CallbackManager callbackManager;
+    private CallbackManager callbackManager;
 
-    public static AlarmBroadcastReceiver alarmBroadcastReceiver = new AlarmBroadcastReceiver();
-    SharedPreferences sharedPreferences;
+    private static AlarmBroadcastReceiver alarmBroadcastReceiver = new AlarmBroadcastReceiver();
+    private SharedPreferences sharedPreferences;
     HashMap<String, String> params = new HashMap<String, String>();
     AccessToken accessToken;
 
@@ -98,7 +94,6 @@ public class MainActivity extends AppCompatActivity {
                 params.put("i_username", username.getText().toString());
                 params.put("i_password", password.getText().toString());
 
-
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, URL_VALIDATE_ACCOUNT, new JSONObject(params), new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
@@ -106,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                              if (response.getString("status").equals("true")){
                                  Toast.makeText(getApplicationContext(),"You are successfully log-in",Toast.LENGTH_LONG).show();
                                  JSONObject object = response.getJSONObject("object");
-                                 String username=object.getString("i_username");
+                                 String username = object.getString("i_username");
 
                                  SharedPreferences.Editor editor= sharedPreferences.edit();
                                  editor.putString("username",username);
@@ -155,14 +150,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-
 
             @Override
             public void onSuccess(LoginResult loginResult) {
 
                 fbLoginDecision(loginResult.getAccessToken().getUserId());
+
             }
 
             @Override
@@ -185,25 +179,26 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
-    }
 
+    }
 
     /*
     * This Method check if the user id exists in the database
     * */
     public void fbLoginDecision(final String userID) {
 
-
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL_USERNAME + userID, null, new Response.Listener<JSONObject>() {
+
             @Override
             public void onResponse(JSONObject response) {
                 try {
+
                     if (response.getString("status").equals("success")){
                         Toast.makeText(getApplicationContext(),"The username exists",Toast.LENGTH_LONG).show();
                         fbLogin(userID);
-
 
                     }else {
 
