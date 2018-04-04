@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView register;
     private CallbackManager callbackManager;
 
-    private static AlarmBroadcastReceiver alarmBroadcastReceiver = new AlarmBroadcastReceiver();
+    public static AlarmBroadcastReceiver alarmBroadcastReceiver = new AlarmBroadcastReceiver();
     private SharedPreferences sharedPreferences;
     HashMap<String, String> params = new HashMap<String, String>();
     AccessToken accessToken;
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         register = (TextView) findViewById(R.id.register);
         LoginButton loginButton = (LoginButton) findViewById(R.id.fb);
-        loginButton.setReadPermissions(Arrays.asList("email","user_work_history","user_education_history","user_likes", "user_events"));
+        loginButton.setReadPermissions(Arrays.asList("email","user_likes", "user_events"));
         sharedPreferences = getSharedPreferences(MyPREFERENCES,Context.MODE_PRIVATE);
 
 
