@@ -54,12 +54,10 @@ public class JobServiceLocation extends JobService {
         Toast.makeText(getApplicationContext(),"The job has been started",Toast.LENGTH_LONG).show();
 
         // Start task to pull work out of the queue and process it.
-        if(sharedPreferences.getString("latitude", null)!=null){
+        if(sharedPreferences.getString("latitude", null)!=null&&sharedPreferences2.getString("username",null)!=null){
 
-            Log.v("mylogs",sharedPreferences.getString("latitude", null));
             InsertLocation(APIURL(getAPIParameters(Double.valueOf(sharedPreferences.getString("latitude", null)), Double.valueOf(sharedPreferences.getString("longitude", null)))));
-        Toast.makeText(this, sharedPreferences.getString("latitude", null), Toast.LENGTH_SHORT).show();
-        Log.v("GIANNIS", sharedPreferences.getString("latitude", null));
+
         }
 
             // Allow the job to continue running while we process work.
@@ -69,11 +67,6 @@ public class JobServiceLocation extends JobService {
     @Override
     public boolean onStopJob(JobParameters jobParameters) {
 
-        // Have the processor cancel its current work.
-        //mCurProcessor.cancel(true);
-        // Tell the system to reschedule the job -- the only reason we would be here is
-        // because the job needs to stop for some reason before it has completed all of
-        // its work, so we would like it to remain to finish that work in the future.
         return false;
     }
 

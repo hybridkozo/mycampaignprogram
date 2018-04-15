@@ -2,106 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp"
+    android:background="#BBDEFB">
 
 
 
 
     <TextView
-        android:id="@+id/name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_marginTop="20dp"
-         />
-
-    <TextView
-        android:id="@+id/surname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_below="@id/name"
-        android:layout_marginTop="20dp"
-        />
-
-    <TextView
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_below="@id/surname"
-        android:layout_marginTop="20dp"
-         />
-
-    <TextView
-        android:id="@+id/mobile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_below="@id/email"
-        android:layout_marginTop="20dp"
-        />
-
-    <Button
-        android:id="@+id/edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Get the last Location"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/mobile"
-         />
-
-    <Button
-        android:id="@+id/startService"
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:text="Start Service"
-        android:layout_above="@+id/logout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="47dp" />
+        android:layout_marginTop="303dp"
+        android:fontFamily="sans-serif"
+        android:text="Application Content"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/stopService"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Stop Service"
-        android:layout_alignBaseline="@+id/startService"
-        android:layout_alignBottom="@+id/startService"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="21dp"
-        android:layout_marginEnd="21dp" />
-
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log Out"
-        android:layout_marginBottom="21dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
-
-    <TextView
-        android:id="@+id/location"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/edit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:text="No location found..." />
-
-    <Button
-        android:id="@+id/token"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/logout"
-        android:layout_toLeftOf="@+id/location"
-        android:layout_toStartOf="@+id/location"
-        android:text="FirebaseId" />
 
 </RelativeLayout>

@@ -19,7 +19,6 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import static com.example.ikozompolis.myapplication.CentralActivity.location;
 import static com.example.ikozompolis.myapplication.CentralActivity.username;
 import static com.example.ikozompolis.myapplication.Usefullmethods.configuration.URL_SAVE_EDUCATION_INFO;
 import static com.example.ikozompolis.myapplication.Usefullmethods.configuration.URL_SAVE_FB_BOOK;

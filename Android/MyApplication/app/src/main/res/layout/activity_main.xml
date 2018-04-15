@@ -1,70 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp"
+    android:background="#BBDEFB">
 
 
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:height="@dimen/com_facebook_profilepictureview_preset_size_small"
+        android:background="@drawable/rounded_border_edittext"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:paddingBottom="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingLeft="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingRight="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingTop="@dimen/com_facebook_likeboxcountview_text_padding"
+        android:selectAllOnFocus="false"
+        android:textAllCaps="false" />
 
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:paddingBottom="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingLeft="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingRight="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingTop="@dimen/com_facebook_likeboxcountview_text_padding"
+        android:background="@drawable/rounded_border_edittext"
+        android:inputType="textPassword"
+        android:layout_below="@id/username"
+        android:layout_marginTop="20dp"/>
 
+    <Button
+        android:id="@+id/login"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_border_button"
+        android:text="Login "
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="20sp"
+         />
 
-                <EditText
-                    android:id="@+id/username"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="Username"
-                    android:inputType="textPersonName"
-                    android:selectAllOnFocus="false"
-                    android:textAllCaps="false"
-                    android:textStyle="bold"
-                    android:layout_marginTop="100dp"/>
+    <TextView
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dont' have an account?\nRegister Here"
+        android:textStyle="bold"
+        android:layout_below="@id/login"
+        android:layout_marginTop="20dp"/>
 
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:textStyle="bold"
-                    android:layout_below="@id/username"
-                    android:layout_marginTop="20dp"/>
-
-                <Button
-                    android:id="@+id/login"
-                    style="@style/Widget.AppCompat.Button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/password"
-                    android:layout_marginTop="40dp"
-                    android:background="@color/colorPrimary"
-                    android:text="Login >"
-                    android:textAlignment="viewEnd"
-                    android:gravity="end"
-                    android:textColor="@android:color/background_light"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/register"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Dont' have an account?\nRegister Here"
-
-                    android:textStyle="bold"
-                    android:layout_below="@id/login"
-                    android:layout_marginTop="20dp"/>
-
-                <com.facebook.login.widget.LoginButton
-                    android:id="@+id/fb"
-                    android:layout_centerHorizontal="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="30dp"
-                    android:layout_marginBottom="30dp"
-                    android:layout_below="@id/register"/>
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fb"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
+        android:layout_below="@id/register"/>
 
 
 

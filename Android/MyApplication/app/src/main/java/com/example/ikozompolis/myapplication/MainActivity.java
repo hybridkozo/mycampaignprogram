@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.ikozompolis.myapplication.Receiver.AlarmBroadcastReceiver;
+import com.example.ikozompolis.myapplication.services.GPSService;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -99,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                              if (response.getString("status").equals("true")){
-                                 Toast.makeText(getApplicationContext(),"You are successfully log-in",Toast.LENGTH_LONG).show();
+                                 Toast.makeText(getApplicationContext(),"You are successfully logged-in",Toast.LENGTH_LONG).show();
                                  JSONObject object = response.getJSONObject("object");
                                  String username = object.getString("i_username");
 
@@ -110,11 +111,12 @@ public class MainActivity extends AppCompatActivity {
 
                                  Intent intent = new Intent(getApplicationContext(),CentralActivity.class);
                                  startActivity(intent);
+                                 startService(new Intent(getBaseContext(), GPSService.class));
                                  alarmBroadcastReceiver.startAlert(getApplicationContext());
                                  finish();
 
                              }else {
-                                 Toast.makeText(getApplicationContext(),"Wrong username or password.",Toast.LENGTH_LONG).show();
+                                 Toast.makeText(getApplicationContext(),"Invalid username or password.",Toast.LENGTH_LONG).show();
                              }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -257,6 +259,7 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("loginWay","FB");
                         editor.commit();
                         startActivity(new Intent(getApplicationContext(),CentralActivity.class));
+                        startService(new Intent(getBaseContext(), GPSService.class));
                         alarmBroadcastReceiver.startAlert(getApplicationContext());
                         finish();
 
@@ -300,6 +303,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(),CentralActivity.class);
         startActivity(intent);
+        startService(new Intent(getBaseContext(), GPSService.class));
         alarmBroadcastReceiver.startAlert(getApplicationContext());
         finish();
 

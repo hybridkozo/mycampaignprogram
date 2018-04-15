@@ -82,16 +82,6 @@ public class GPSService extends IntentService{
 
             sharedPreferences = getSharedPreferences(GpsPREFERENCES,Context.MODE_PRIVATE);
 
-           /* try {
-                mLocationManager.requestLocationUpdates(
-                        LocationManager.NETWORK_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,
-                        mLocationListeners[1]);
-            } catch (java.lang.SecurityException ex) {
-                Log.v(TAG, "fail to request location update, ignore", ex);
-            } catch (IllegalArgumentException ex) {
-                Log.v(TAG, "network provider does not exist, " + ex.getMessage());
-            }*/
-
             try {
                 mLocationManager.requestLocationUpdates(
                         LocationManager.GPS_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE,

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/personalData"
+        android:title="Show Personal Data"
+        android:showAsAction="ifRoom"/>
+    <item android:id="@+id/lastLocation"
+        android:title="Get Last Location" />
+    <item android:id="@+id/startService"
+        android:title="Enable Location Detection" />
+    <item android:id="@+id/stopService"
+        android:title="Disable Location Detection" />
+    <item android:id="@+id/logout"
+        android:title="Logout" />
+</menu>

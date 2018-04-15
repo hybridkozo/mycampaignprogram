@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingLeft="16dp"
-    android:paddingRight="16dp" >
+    android:paddingRight="16dp"
+    android:background="#BBDEFB">
 
 
     <EditText
@@ -12,7 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:hint="Username"
-
+        android:paddingBottom="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingLeft="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingRight="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingTop="@dimen/com_facebook_likeboxcountview_text_padding"
+        android:background="@drawable/rounded_border_edittext"
         android:inputType="textPersonName"
         android:text="" />
 
@@ -23,6 +28,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/username"
         android:layout_marginTop="15dp"
+        android:paddingBottom="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingLeft="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingRight="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingTop="@dimen/com_facebook_likeboxcountview_text_padding"
+        android:background="@drawable/rounded_border_edittext"
         android:hint="Password"
         android:inputType="textPassword" />
 
@@ -32,6 +42,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/password"
         android:layout_marginTop="15dp"
+        android:paddingBottom="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingLeft="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingRight="@dimen/com_facebook_likeboxcountview_caret_width"
+        android:paddingTop="@dimen/com_facebook_likeboxcountview_text_padding"
+        android:background="@drawable/rounded_border_edittext"
         android:hint="Re-Password"
         android:inputType="textPassword" />
 
@@ -40,10 +55,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/repassword"
-        android:background="@color/colorPrimary"
         android:textColor="@android:color/background_light"
         android:textSize="20sp"
-        android:textStyle="bold"
+        android:background="@drawable/rounded_border_button"
         android:layout_marginTop="30dp"
         android:text="Next"
         />
