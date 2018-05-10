@@ -1,15 +1,3 @@
-/*
-sharedPreferences = getSharedPreferences(GpsPREFERENCES,Context.MODE_PRIVATE);
-
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        latitude = location.getLatitude();
-        editor.putString("latitude",String.valueOf(latitude));
-
-        longitude = location.getLongitude();
-        editor.putString("longitude",String.valueOf(longitude));
-        editor.commit();*/
-
-
 package com.example.ikozompolis.myapplication.services;
 
 import android.Manifest;
@@ -28,7 +16,6 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 import android.support.v4.content.ContextCompat;
-
 /**
  * Created by ikozompolis on 1/11/2017.
  *
@@ -54,7 +41,6 @@ public class GPSService extends IntentService{
             new LocationListener(LocationManager.NETWORK_PROVIDER)*/
     };
 
-
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
@@ -67,10 +53,8 @@ public class GPSService extends IntentService{
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
+		
         Toast.makeText(getApplicationContext(),"Starting service...",Toast.LENGTH_LONG).show();
-
-
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED&&ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
 
             Toast.makeText(getApplicationContext(),"Permissions are not granted...",Toast.LENGTH_LONG).show();
@@ -79,7 +63,6 @@ public class GPSService extends IntentService{
         }else {
 
             initializeLocationManager();
-
             sharedPreferences = getSharedPreferences(GpsPREFERENCES,Context.MODE_PRIVATE);
 
             try {
@@ -91,18 +74,14 @@ public class GPSService extends IntentService{
             } catch (IllegalArgumentException ex) {
                 Log.v(TAG, "gps provider does not exist " + ex.getMessage());
             }
-
         }
-
         if(mLocationListeners[0]!=null){
             searchNewLocation();
-
         }
 
         return Service.START_NOT_STICKY;
     }
-
-
+	
     @Override
     public void onDestroy() {
 
@@ -151,7 +130,6 @@ public class GPSService extends IntentService{
         if (mLocationManager != null) {
             try {
                 mLocationManager.removeUpdates(mLocationListeners[0]);
-                //mLocationManager.removeUpdates(mLocationListeners[1]);
             } catch (Exception ex) {
                 Log.v(TAG, "fail to remove location listners, ignore", ex);
             }
@@ -162,7 +140,6 @@ public class GPSService extends IntentService{
 
     private class LocationListener implements android.location.LocationListener
     {
-        //Location mLastLocation;
 
         public LocationListener(String provider)
         {
@@ -202,4 +179,5 @@ public class GPSService extends IntentService{
 
 
 }
+
 

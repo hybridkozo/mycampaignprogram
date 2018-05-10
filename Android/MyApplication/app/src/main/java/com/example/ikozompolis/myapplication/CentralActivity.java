@@ -169,8 +169,6 @@ public class CentralActivity extends AppCompatActivity {
             Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
             lat = Double.valueOf(sharedPreferences2.getString("latitude",null));
             lon =  Double.valueOf(sharedPreferences2.getString("longitude",null));
-
-
             List<Address> addresses = null;
 
             try {

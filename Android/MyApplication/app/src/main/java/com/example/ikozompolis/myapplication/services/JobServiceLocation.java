@@ -38,38 +38,27 @@ import static com.example.ikozompolis.myapplication.Usefullmethods.configuration
 
 public class JobServiceLocation extends JobService {
 
-
-
     private NotificationManager mNM;
     SharedPreferences sharedPreferences;
     SharedPreferences sharedPreferences2;
-   // private CommandProcessor mCurProcessor;
 
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
 
         sharedPreferences = getSharedPreferences(GPSService.GpsPREFERENCES, Context.MODE_PRIVATE);
         sharedPreferences2 = getSharedPreferences(MainActivity.MyPREFERENCES, Context.MODE_PRIVATE);
-
         Toast.makeText(getApplicationContext(),"The job has been started",Toast.LENGTH_LONG).show();
-
         // Start task to pull work out of the queue and process it.
         if(sharedPreferences.getString("latitude", null)!=null&&sharedPreferences2.getString("username",null)!=null){
-
             InsertLocation(APIURL(getAPIParameters(Double.valueOf(sharedPreferences.getString("latitude", null)), Double.valueOf(sharedPreferences.getString("longitude", null)))));
-
         }
-
-            // Allow the job to continue running while we process work.
         return false;
     }
 
     @Override
     public boolean onStopJob(JobParameters jobParameters) {
-
         return false;
     }
-
 
     private String[] getAPIParameters(double lat, double lon) {
 
@@ -91,28 +80,21 @@ public class JobServiceLocation extends JobService {
                     ", Longitude = " +
                     lon, illegalArgumentException);
         }
-
-        // Handle case where no address was found.
+        // Handle the case where no address is found.
         if (addresses == null || addresses.size() == 0) {
-
                 errorMessage = "The address is not found...";
                 Log.e(TAG, errorMessage);
-
-
         } else {
             Address address = addresses.get(4);
             Address address1 = addresses.get(0);
             Address address2 = addresses.get(0);
-
             CountyCode = address.getCountryCode();
             CountryName = address.getCountryName();
             FeatureName = address.getFeatureName();
             PostalCode = address1.getPostalCode();
             SubAdminArea = address.getSubAdminArea();
             AdminArea = address.getAdminArea();
-
             ArrayList<String> addressFragments = new ArrayList<String>();
-
             // Fetch the address lines using getAddressLine,
             // join them, and send them to the thread.
             for (int i = 0; i <= address2.getMaxAddressLineIndex(); i++) {
@@ -122,9 +104,7 @@ public class JobServiceLocation extends JobService {
             Log.i(TAG, "The address has been found...");
 
         }
-
         String[] APIParameters = {CountyCode, CountryName, FeatureName, PostalCode, SubAdminArea, AdminArea, Address};
-
         return APIParameters;
     }
 
@@ -132,11 +112,11 @@ public class JobServiceLocation extends JobService {
 
         String URL = localURL + "saveLocation?" + "i_username=" +  sharedPreferences2.getString("username", null) + "&i_country_code=" + APIParameters[0] + "&i_country_name=" + APIParameters[1] + "&i_city_name=" + APIParameters[2] + "&i_prefecture=" + APIParameters[4] + "&i_department=" + APIParameters[5] + "&i_street_address=" + APIParameters[6] + "&i_postal_code=" + APIParameters[3];
         Log.v("CreateURL", URL);
+
         return URL;
     }
 
     private void InsertLocation(String URL){
-
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL, null, new Response.Listener<JSONObject>() {
             @Override
@@ -156,9 +136,6 @@ public class JobServiceLocation extends JobService {
         });
 
         Mysingleton.getInstance(getApplicationContext()).addToRequestque(jsonObjectRequest);
-
-
     }
-
 
 }

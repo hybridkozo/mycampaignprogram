@@ -17,7 +17,6 @@ public final  class AlarmBroadcastReceiver extends BroadcastReceiver {
     public static AlarmManager alarmManager;
     PendingIntent pendingIntent;
 
-
     @Override
     public void onReceive(Context context, Intent intent) {
          startAlert(context);
@@ -27,16 +26,15 @@ public final  class AlarmBroadcastReceiver extends BroadcastReceiver {
     public void startAlert(Context context) {
 
         Intent intent = new Intent(context, JobReceiver.class);
-         pendingIntent = PendingIntent.getBroadcast(context,123456,intent,0);
-         alarmManager = (AlarmManager) context.getSystemService(context.ALARM_SERVICE);
-
-        // Hopefully your alarm will have a lower frequency than this!
+        pendingIntent = PendingIntent.getBroadcast(context,123456,intent,0);
+        alarmManager = (AlarmManager) context.getSystemService(context.ALARM_SERVICE);
         alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 10000, 1000 * 10, pendingIntent);
-
-    }
+        }
 
     public void stopAlert(Context context){
+
         alarmManager.cancel(pendingIntent);
-    }
+
+        }
     }
 

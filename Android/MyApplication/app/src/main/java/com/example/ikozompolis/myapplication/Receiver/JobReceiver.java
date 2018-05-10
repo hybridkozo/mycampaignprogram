@@ -22,8 +22,6 @@ public class JobReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Toast.makeText(context, "Alarm is running....", Toast.LENGTH_LONG).show();
-        //jobScheduler =  context.getSystemService(JobScheduler.class);
-
         jobScheduler = (JobScheduler) context.getSystemService(context.JOB_SCHEDULER_SERVICE);
         jobScheduler.schedule(new JobInfo.Builder(1,
                 new ComponentName(context, JobServiceLocation.class))
