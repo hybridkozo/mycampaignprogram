@@ -114,7 +114,6 @@ public class facebookFunctions {
 
     public void saveUserEducationInfo(AccessToken accessToken, final Context context) {
 
-
         GraphRequest request = GraphRequest.newMeRequest(
                 accessToken,
                 new GraphRequest.GraphJSONObjectCallback() {
@@ -122,7 +121,6 @@ public class facebookFunctions {
                     public void onCompleted(
                             JSONObject object,
                             GraphResponse response) {
-
 
                         try {
                             String degree, school, type , year, URL;
@@ -474,7 +472,6 @@ public class facebookFunctions {
         });
 
         Mysingleton.getInstance(context).addToRequestque(jsonObjectRequest);
-
 
     }
 
