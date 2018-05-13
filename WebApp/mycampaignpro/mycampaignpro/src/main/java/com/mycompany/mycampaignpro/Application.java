@@ -19,14 +19,12 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 @SpringBootApplication
 @EnableScheduling
 public class Application {
-        
-   
+           
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
             
     }
-    
-  @Bean
+        @Bean
 	public SchedulerFactoryBean schedulerFactory(ApplicationContext applicationContext) {
 		SchedulerFactoryBean factoryBean = new SchedulerFactoryBean();
 		AutowiringSpringBeanJobFactory jobFactory = new AutowiringSpringBeanJobFactory();

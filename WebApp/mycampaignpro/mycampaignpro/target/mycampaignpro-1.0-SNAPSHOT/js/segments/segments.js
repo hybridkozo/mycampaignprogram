@@ -633,8 +633,7 @@ var targetlocation = {
      departmentSel.style.display = 'block';
      departmentButton.style.display = 'none';
      prefectureButton.style.display = 'block';
-     
-     
+    
   },
   selectPrefecture: function(){
      
@@ -650,8 +649,6 @@ var targetlocation = {
      prefectureButton.style.display = 'none';
      cityButton.style.display = 'block';
      
-     
-      
   },
   selectCity: function(){
       
@@ -755,17 +752,15 @@ var targetlocation = {
                          xhttp.onreadystatechange = function() {
                             var data,x = "",i,flen; 
                             if (this.readyState === 4 && this.status === 200) {
-                                 data = JSON.parse(this.responseText);
+                               data = JSON.parse(this.responseText);
                                flen = data.length;
                                  
                                  if (data!==null){
                                      for (i=0;i<flen;i++){
                                       x+= "<option>" + data[i] + "</option>";
-                                     }
-                                    
+                                     }                                    
                                      document.getElementById(itemId).innerHTML = x;
-                                 }
-                                 
+                                 }                                 
                             }
                          };
                          xhttp.open("GET", URL, true);
@@ -791,15 +786,10 @@ var targetlocation = {
                                              }
                                      }
                                 };
-                          
-                               
-                                xhr.send(selectedItems);
-
-                            
+                  
+                                xhr.send(selectedItems);                        
                         }
-    }       
-            
-    
+    }           
 };
 
 
@@ -1149,11 +1139,7 @@ var save = {
         js+= '"events":' + targeteducation.getSelectValues(events) + ', ';
         js+= '"music":' + targeteducation.getSelectValues(music) + ', ';
         js+= '"pages":' + targeteducation.getSelectValues(pages) + '}';
-        
-        save.callTheBackToSave(js);
-   
-        
-      
+        save.callTheBackToSave(js);   
     },
     callTheBackToSave: function(json){
         var data;

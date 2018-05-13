@@ -64,7 +64,6 @@ public class SYSSegmentController {
         }else{
           description = (String) jsonObject.get("description");
         }
-        
         if("".equals(name)){
         return new ResponseObject("fail",new errorMessage("Invalid Name","Missing the name",""));
         
