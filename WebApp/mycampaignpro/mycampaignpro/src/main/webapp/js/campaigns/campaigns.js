@@ -51,19 +51,15 @@ var campaign = {
                                }else{
                                    
                                    campaign.triggerSimpleNotification(campaignTime,id);
-                               }
-                               
+                               }                               
                             }
                          };
                          xhttp.open("GET", "http://localhost:8080/getStartDateOfCampaign?id=" + id, true);
-                            xhttp.send(); 
-        
-       
-         
+                            xhttp.send();         
     },
     triggerSimpleNotification: function(date,id){
         var month = parseInt(date.getMonth());
-                               month++;
+        month++;
         var json = '{ "name": "Simple Notification ' + id + '", "id" : ' + id + ', "triggers":[ { "name": "Simple Notification ' + id + '", "group": "simplenotification", "cron": "0 ' + date.getMinutes() + ' ' + date.getHours() + ' ' + date.getDate() + ' ' + month + ' ? ' + date.getFullYear() + '"} ]}';
         alert(json);
         var xhr = new XMLHttpRequest();
@@ -74,18 +70,12 @@ var campaign = {
         
         if (xhr.readyState === 4 && xhr.status === 200) {
             
-            alert("Campaign activated!!!");
-                                           
-            campaign.changeActivateStatusOnDatabase(id);
-            
-                                     }
-                                };
-                          
-                                
-                                xhr.send(json);
-                                campaign.changeActivateStatusOnDatabase(id);
-        
-        
+            alert("Campaign activated!!!");                                          
+            campaign.changeActivateStatusOnDatabase(id);            
+        }
+        };                            
+        xhr.send(json);
+        campaign.changeActivateStatusOnDatabase(id);   
     },
     changeActivateStatusOnDatabase: function(id){
         var xhttp = new XMLHttpRequest();
@@ -339,9 +329,7 @@ var edit = {
             datetime=null;
            errorMessageDatetime.style.display='block';
         }
-        
-        
-        
+       
         if (notificationTitle===""){
             notificationTitle=null;
            errorMessageNotificationTitle.style.display='block';
@@ -383,12 +371,9 @@ var edit = {
                 var errorVal = document.getElementById('errorMessage');
                 errorVal.style.display='block';
                 errorVal.innerHTML = '<strong>Warning!</strong>' + data.object.description;
-            }                            
-            
-                                     }
-                                };
-                          
-                                
+            }                                       
+        }
+                                };                               
                                 xhr.send(json);
     }
     
